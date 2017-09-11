@@ -1,0 +1,60 @@
+﻿body {
+    background-image: url('../img/5/topbg.png');
+    background-repeat: repeat-x;
+    max-width: 900px;
+    margin: auto;
+    background-color: #eff5fb;
+    font-family: Arial;
+}
+a{
+    text-decoration: none;
+}
+banner {
+    background-image: url('../img/5/bg_header.gif');
+    height: 240px;
+    position: relative;
+    display: block;
+}
+nav ul li {
+    list-style: none;
+    display:inline-block;
+    text-transform: uppercase;
+    padding: 20px 10px 0;
+    font-size: 90%;
+    color: midnightblue;
+}
+nav ul li:hover {
+    font-weight: bold;
+    cursor: pointer;
+    text-shadow: 1px 1px 3px #0000004d;
+}
+nav {
+    text-align:center;
+    display: block; 
+    position:absolute;
+    bottom:0;
+}
+
+.left {
+    width: 300px;
+    display: inline-block;
+    margin: 0;
+    height:400px;
+}
+.right {
+    width:590px;
+    display: inline-block;
+    margin:0;
+    height:400px;
+}
+.right img {
+    width:100%;
+}
+div li {
+    list-style: none;
+    border-bottom: 1px dashed #0099FF;
+    background-image: url('../img/5/dot1.gif');
+    background-repeat: no-repeat;
+    padding: 0 0 0 15px;
+    background-position: 0px 6px;
+}

@@ -1,0 +1,28 @@
+﻿body {
+    background-image: url('../img/Heart.jpg');
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.poem {
+    max-width: 500px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 100px auto;
+}
+#header {
+    text-transform: uppercase;
+    font-size: 24px;
+    text-decoration: underline;
+    text-align:center;
+}
+#para1 {
+    font-style: italic;
+    color: blue;
+}
+#para1 span, #para2 span {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+#para2 {
+    text-align: right;
+    color: violet;
+}

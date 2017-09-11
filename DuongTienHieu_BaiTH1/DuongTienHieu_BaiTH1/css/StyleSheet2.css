@@ -1,0 +1,16 @@
+﻿body {
+}
+
+.wtf {
+    max-width: 800px;
+    background-image: url('../img/Heart.jpg');
+    border: 2px dotted #808080;
+    background-size:cover;
+    margin:auto;
+    margin-top:150px;
+}
+img {
+    max-width: 150px;
+    height: 284px;
+    width: 296px;
+}
