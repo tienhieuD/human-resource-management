@@ -84,6 +84,8 @@
     <Content Include="frm\bai_th3.aspx" />
     <Content Include="frm\bai_th4.aspx" />
     <Content Include="frm\bai_th5.aspx" />
+    <Content Include="frm\Get.aspx" />
+    <Content Include="frm\ThucHanh.aspx" />
     <Content Include="img\4\banner.jpg" />
     <Content Include="img\4\bg_white_wall.jpg" />
     <Content Include="img\4\chuctet.jpg" />
@@ -151,6 +153,20 @@
     </Compile>
     <Compile Include="frm\bai_th5.aspx.designer.cs">
       <DependentUpon>bai_th5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm\Get.aspx.cs">
+      <DependentUpon>Get.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm\Get.aspx.designer.cs">
+      <DependentUpon>Get.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm\ThucHanh.aspx.cs">
+      <DependentUpon>ThucHanh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm\ThucHanh.aspx.designer.cs">
+      <DependentUpon>ThucHanh.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

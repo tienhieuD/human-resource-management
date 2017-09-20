@@ -33,5 +33,23 @@ namespace DemoMVC.Controllers
 
             return View();
         }
+
+        public ActionResult Nv(string manv)
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            dict.Add("0000", "Nguyễn thị không");
+            dict.Add("0001", "Nguyễn văn một");
+
+            if (dict.ContainsKey(manv))
+            {
+                return Content(dict[manv]);
+            }
+            else
+                return View("Index");
+            //return Content("");
+                //return RedirectToAction("Index");
+                //return Content(dict.Any(item => item.Key == manv).ToString());
+                //return Json(new { manv = manv, content = "Không tồn tại" }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
