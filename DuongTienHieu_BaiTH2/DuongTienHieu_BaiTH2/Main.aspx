@@ -81,25 +81,25 @@
           <h3 style="background-image: url('../images/bg_header_content_center.gif');height: 50px;border: 1px solid #aabccd;border-top-width: 1px;border-top-style: solid;border-top-color: rgb(170, 188, 205);border-top: none;border-radius: 8px;text-align: center;text-transform: uppercase;font-size: 14px;padding-top: 15px;margin: 10px 0;font-weight: bold;">
               Thông tin ứng viên đăng ký tuyển dụng
           </h3>
-            <form id="form1" runat="server" action="ttdangky.aspx">
+            <form id="form1" runat="server">
                 <div class="text-left">
             <b>Thông tin ứng viên:</b><br />
                     <asp:Label ID="lbName" runat="server" Text="Họ và tên"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;(*)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtname" runat="server" OnTextChanged="txtname_TextChanged"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtname" ErrorMessage="Nhập tên" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtname" ErrorMessage="Nhập tên" ForeColor="Red" ValidationGroup="1"></asp:RequiredFieldValidator>
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
                     <asp:Label ID="Label1" runat="server" Text="Giới tính"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;(*)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:RadioButton name="rbgender1" ID="rbgender1" runat="server" Text="Nam" GroupName="gt" Checked="True" OnCheckedChanged="rbgender1_CheckedChanged" AutoPostBack="False"/>
                     
 &nbsp;&nbsp;&nbsp;
                     <asp:RadioButton ID="rbgender2" runat="server" Text="Nữ" GroupName="gt" AutoPostBack="False" OnCheckedChanged="rbgender2_CheckedChanged" />
                     <br />
                     <asp:Label ID="Label2" runat="server" Text="Ngày sinh"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;<asp:Label ID="Label11" runat="server" Text="Ngày"></asp:Label>
+                    &nbsp;(*)&nbsp;&nbsp;<asp:Label ID="Label11" runat="server" Text="Ngày"></asp:Label>
                     <asp:DropDownList ID="lstDay" runat="server" Width="55px" AutoPostBack="False" OnSelectedIndexChanged="lstDay_SelectedIndexChanged">
                     </asp:DropDownList>
                     &nbsp;<asp:Label ID="Label12" runat="server" Text="Tháng"></asp:Label>
@@ -129,17 +129,19 @@
                     <asp:Label ID="validate" runat="server" ForeColor="Red"></asp:Label>
                     <br />
                     <asp:Label ID="Label3" runat="server" Text="Email"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;(*)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email sai" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtEmail" ErrorMessage="Nhập tên email" ForeColor="Red" ValidationGroup="1"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email sai" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="1"></asp:RegularExpressionValidator>
                     <br />
                     <asp:Label ID="Label4" runat="server" Text="Điện thoại"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;(*)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPhone" ErrorMessage="Sai định dạng" ForeColor="Red" ValidationExpression="[\d]+"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtPhone" ErrorMessage="Nhập tên SĐT" ForeColor="Red" ValidationGroup="1"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPhone" ErrorMessage="Sai định dạng" ForeColor="Red" ValidationExpression="[\d]+" ValidationGroup="1"></asp:RegularExpressionValidator>
                     <br />
                     <asp:Label ID="Label5" runat="server" Text="Địa chỉ"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;(*)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtAddress" runat="server" Height="79px" TextMode="MultiLine" Width="407px"></asp:TextBox>
                     <br />
                     <asp:Label ID="Label6" runat="server" Text="Ngôn ngữ lập trình bạn biết"></asp:Label>
@@ -158,7 +160,7 @@
 &nbsp;<asp:CheckBox ID="ckdel" runat="server" Text="DelPhi" OnCheckedChanged="CheckBox10_CheckedChanged" />
                     <br />
                     <asp:Label ID="Label7" runat="server" Text="Vị trí tuyển dụng"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;(*)&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:DropDownList ID="lstViTriTD" runat="server" Width="180px">
                         <asp:ListItem>Lập trình winform</asp:ListItem>
                         <asp:ListItem>Lập trình webform</asp:ListItem>
@@ -166,21 +168,22 @@
                     </asp:DropDownList>
                     <br />
                     <asp:Label ID="Label8" runat="server" Text="Tên đăng nhập"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;(*)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtlogin" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtlogin" ErrorMessage="Nhập tên đăng nhập" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtlogin" ErrorMessage="Nhập tên đăng nhập" ForeColor="Red" ValidationGroup="1"></asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="Label9" runat="server" Text="Mật khẩu"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;(*)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtmk1" runat="server" TextMode="Password" ></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtmk1" ErrorMessage="Nhập mật khẩu" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtmk1" ErrorMessage="Nhập mật khẩu" ForeColor="Red" ValidationGroup="1"></asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="Label10" runat="server" Text="Nhập lại mật khẩu"></asp:Label>
-&nbsp;&nbsp;
+&nbsp;&nbsp;(*)
                     <asp:TextBox ID="txtmk2" runat="server" TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtmk2" ErrorMessage="Nhập mật khẩu" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtmk1" ControlToValidate="txtmk2" ErrorMessage="Mật khẩu không khớp" ForeColor="Red"></asp:CompareValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtmk2" ErrorMessage="Nhập mật khẩu" ForeColor="Red" ValidationGroup="1"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtmk1" ControlToValidate="txtmk2" ErrorMessage="Mật khẩu không khớp" ForeColor="Red" ValidationGroup="1"></asp:CompareValidator>
                     <br />
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ValidationGroup="1" />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input id="btnNopHoSo" class="auto-style1" type="submit" value="Nộp hồ sơ" />&nbsp;&nbsp;&nbsp;
