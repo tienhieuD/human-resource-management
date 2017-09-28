@@ -26,10 +26,13 @@
         .auto-style4 {
             font-size: small;
         }
+        .auto-style5 {
+            font-size: xx-small;
+        }
     </style>
 </head>
 <body>
-    <form class="block" runat="server" id="frmRegister">
+    <form class="block" runat="server" id="frmRegister" action="Default.aspx" method="post">
     <div class="fixed">
         <img class="auto-style1" src="../img/AYS1.gif" />
         MÔN HỌC LẬP TRÌNH .NET 2 - PHÁT TRIỂN ỨNG DỤNG WEB VỚI ASP.NET
@@ -51,6 +54,7 @@
                                 <td width="30%" class="auto-style3">Họ tên: (*)</td>
                                 <td class="auto-style3">
                                     <asp:TextBox ID="txtTen" runat="server" Width="208px"></asp:TextBox>
+                                &nbsp;<asp:RequiredFieldValidator ID="valiTen" runat="server" BackColor="#FF9933" ControlToValidate="txtTen" CssClass="auto-style5" ErrorMessage="Chưa nhập tên" ValidationGroup="1"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -77,12 +81,16 @@
                                 <td width="30%" class="auto-style3">Điện thoại: (*)</td>
                                 <td class="auto-style3">
                                     <asp:TextBox ID="txtDienThoai" runat="server" Width="209px"></asp:TextBox>
+                                &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" BackColor="#FF9933" ControlToValidate="txtDienThoai" CssClass="auto-style5" ErrorMessage="Số điện thoại không hợp lệ" ValidationExpression="(0|\+84)[0-9]{9,10}" ValidationGroup="1"></asp:RegularExpressionValidator>
+&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" BackColor="#FF9933" ControlToValidate="txtDienThoai" CssClass="auto-style5" ErrorMessage="Số điện thoại chưa nhập" ValidationGroup="1"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="30%" class="auto-style3">Email: (*)</td>
                                 <td class="auto-style3">
                                     <asp:TextBox ID="txtEmail" runat="server" Width="207px"></asp:TextBox>
+                                &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" BackColor="#FF9933" ControlToValidate="txtEmail" CssClass="auto-style5" ErrorMessage="Email không hợp lệ" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="1"></asp:RegularExpressionValidator>
+&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" BackColor="#FF9933" ControlToValidate="txtEmail" CssClass="auto-style5" ErrorMessage="Chưa nhập email" ValidationGroup="1"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -92,8 +100,12 @@
                                 </td>
                             </tr>
                         </table>
-                        <asp:Button ID="btnDongY" runat="server" Text="Đồng ý" />
-                        <asp:Button ID="btnHuy" runat="server" Text="Hủy" />
+                        <asp:Button ID="btnDongY" runat="server" Text="Đồng ý" PostBackUrl="~/frm/Default.aspx" ValidationGroup="1" />
+                        <asp:Button ID="btnHuy" runat="server" Text="Hủy" UseSubmitBehavior="False" />
+                        <br />
+                        <div class="auto-style3">
+                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#990000" ValidationGroup="1" />
+                        </div>
                     </td>
                 </tr>
             </table>
