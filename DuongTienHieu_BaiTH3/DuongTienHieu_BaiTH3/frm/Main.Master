@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="DuongTienHieu_BaiTH3.frm.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="../css/styleMasterPage.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <div class="cover">
+        </div>
+        <div class="menu">
+            <a href="#">MÙA XUÂN</a> |
+            <a href="#">MÙA HẠ</a> |
+            <a href="#">MÙA THU</a> |
+            <a href="#">MÙA ĐÔNG</a> |
+            <a href="#">MÙA CMM</a>
+        </div>
+    
+        <div class="content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+   
+        <div class="footer">
+            WEBSITE BỐN MÙA. PHÁT TRIỂN BỞI CMM<br />
+            LIÊN HỆ: SỐ ĐIỆN THOẠI 0993292556 - EMAIL duongnguyen1216@gmail.com
+        </div>
+    </form>
+</body>
+</html>
