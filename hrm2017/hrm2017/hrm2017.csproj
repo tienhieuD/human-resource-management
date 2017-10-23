@@ -66,10 +66,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Home.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="forms\config\QuanLyPhongBan.aspx" />
+    <Content Include="forms\Home.aspx" />
     <Content Include="Main.Master" />
     <None Include="packages.config" />
-    <Content Include="Default.aspx" />
     <Content Include="styles\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="styles\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="styles\bootstrap\fonts\glyphicons-halflings-regular.woff" />
@@ -1137,11 +1138,18 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
+    <Compile Include="forms\config\QuanLyPhongBan.aspx.cs">
+      <DependentUpon>QuanLyPhongBan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\config\QuanLyPhongBan.aspx.designer.cs">
+      <DependentUpon>QuanLyPhongBan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
+    <Compile Include="forms\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="InterMan.cs" />
@@ -1156,7 +1164,10 @@
     <Compile Include="DataMan.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="forms\" />
+    <Folder Include="forms\attendence\" />
+    <Folder Include="forms\employee\" />
+    <Folder Include="forms\report\" />
+    <Folder Include="forms\salary\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

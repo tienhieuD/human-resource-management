@@ -11,7 +11,18 @@ namespace hrm2017
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            test.Text = DataMan.connectionString;
+
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            string sql = string.Format(
+                @"select count(*) from login where login = '{0}' and pwd = '{1}'",
+                txtLogin.Text, txtPwd.Text);
+            if (DataMan.ExecuteCommandSingle(sql) > 0)
+                Response.Redirect("~/forms/Home.aspx");
+            else
+                lblNotice.Text = "Tài khoản / Mật khẩu không hợp lệ!";
         }
     }
 }

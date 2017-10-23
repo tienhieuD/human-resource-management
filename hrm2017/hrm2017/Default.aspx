@@ -9,7 +9,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="test" runat="server"/>
+            <asp:Label ID="lblNotice" runat="server" /><br />
+            <asp:TextBox ID="txtLogin" runat="server" placeholder="Tài khoản"/><br />
+            <asp:TextBox ID="txtPwd" runat="server" TextMode="Password" placeholder="Mật khẩu" /><br />
+            <asp:Button ID="btnLogin" runat="server" Text="Đăng nhập" OnClick="btnLogin_Click" />
         </div>
     </form>
 </body>

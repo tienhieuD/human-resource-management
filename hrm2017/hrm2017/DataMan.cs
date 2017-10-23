@@ -11,8 +11,10 @@ namespace hrm2017
     //Data Manipulation
     public class DataMan
     {
-        public static string connectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
-        public static SqlConnection sqlConnection = new SqlConnection(connectionString);
+        public static string connectionString = 
+            ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        public static SqlConnection sqlConnection =
+            new SqlConnection(connectionString);
         public static SqlCommand sqlCommand;
         public static SqlDataAdapter sqlDataAdapter;
 

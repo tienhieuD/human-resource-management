@@ -15,7 +15,7 @@ namespace hrm2017
 
             for (int i = 0; i < dataTable.Columns.Count; i++)
                 th += "<th>" + dataTable.Columns[i].Caption + "</th>";
-            tr = "<tr class='w3-green'>" + th + "</tr>";
+            tr = "<tr>" + th + "</tr>";
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
@@ -24,7 +24,7 @@ namespace hrm2017
                     td += "<td>" + dataTable.Rows[i][j].ToString() + "</td>";
                 tr += "<tr>" + td + "</tr>";
             }
-            table = "<table  class='w3-table w3-striped w3-bordered'>" + tr + "</table>";
+            table = "<table  class='table table-striped table-bordered dataTable'>" + tr + "</table>";
             return table;
         }
     }
