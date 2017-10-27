@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="forms\config\QuanLyPhongBan.aspx" />
+    <Content Include="forms\employee\HoSoNhanVien.aspx" />
     <Content Include="forms\Home.aspx" />
     <Content Include="Main.Master" />
     <None Include="packages.config" />
@@ -1145,6 +1146,13 @@
     <Compile Include="forms\config\QuanLyPhongBan.aspx.designer.cs">
       <DependentUpon>QuanLyPhongBan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="forms\employee\HoSoNhanVien.aspx.cs">
+      <DependentUpon>HoSoNhanVien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\employee\HoSoNhanVien.aspx.designer.cs">
+      <DependentUpon>HoSoNhanVien.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forms\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1165,7 +1173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="forms\attendence\" />
-    <Folder Include="forms\employee\" />
     <Folder Include="forms\report\" />
     <Folder Include="forms\salary\" />
   </ItemGroup>
