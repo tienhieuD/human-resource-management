@@ -10,25 +10,43 @@
 namespace hrm2017.forms.employee {
     
     
-    public partial class ThongTinNhanVien {
+    public partial class HoSoNhanVienChiTiet {
         
         /// <summary>
-        /// lb_Tieude control.
+        /// lbTenNV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_Tieude;
+        protected global::System.Web.UI.WebControls.Label lbTenNV;
         
         /// <summary>
-        /// pn1 control.
+        /// btnSua control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pn1;
+        protected global::System.Web.UI.WebControls.Button btnSua;
+        
+        /// <summary>
+        /// btnXoa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnXoa;
+        
+        /// <summary>
+        /// pnlMain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMain;
         
         /// <summary>
         /// txtManv control.
@@ -112,13 +130,13 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtSDT;
         
         /// <summary>
-        /// txtDanToc control.
+        /// lstDanToc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDanToc;
+        protected global::System.Web.UI.WebControls.DropDownList lstDanToc;
         
         /// <summary>
         /// txtTonGiao control.
@@ -148,22 +166,22 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// txtChucvu control.
+        /// lstChucVu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtChucvu;
+        protected global::System.Web.UI.WebControls.DropDownList lstChucVu;
         
         /// <summary>
-        /// txtPhongBan control.
+        /// lstPhongBan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhongBan;
+        protected global::System.Web.UI.WebControls.DropDownList lstPhongBan;
         
         /// <summary>
         /// txtGhiChu control.
@@ -175,48 +193,12 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtGhiChu;
         
         /// <summary>
-        /// btn_addNv control.
+        /// btnThem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_addNv;
-        
-        /// <summary>
-        /// btn_EditNv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_EditNv;
-        
-        /// <summary>
-        /// btn_RemoveNv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_RemoveNv;
-        
-        /// <summary>
-        /// btn_Luu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Luu;
-        
-        /// <summary>
-        /// lbDsNhanVien control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbDsNhanVien;
+        protected global::System.Web.UI.WebControls.Button btnThem;
     }
 }

@@ -20,7 +20,7 @@ namespace hrm2017.forms.employee
 				    WHEN 1 THEN 'Nam' 
 				    ELSE N'Nữ'
 			     END AS 'GIỚI TÍNH'
-                ,[NGAYSINH] AS 'NGÀY SINH'
+                ,CAST([NGAYSINH] AS VARCHAR) AS 'NGÀY SINH'
                 ,[DIACHI] AS 'ĐỊA CHỈ'
                 ,[SODIENTHOAI] AS 'SỐ ĐIỆN THOẠI'
                 ,[TBL_CHUCVU].[TENCV] AS 'CHỨC VỤ'
@@ -33,10 +33,11 @@ namespace hrm2017.forms.employee
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-
                 int n = dataTable.Columns.Count-1;
                 string manv = dataTable.Rows[i][1].ToString();
-                dataTable.Rows[i][n] = string.Format("<a href='ThongTinNhanVien.aspx?manv={0}'>Chi tiết</a>",manv);
+                dataTable.Rows[i][n] = string.Format("<a href='HoSoNhanVienChiTiet.aspx?thaotac=xem&manv={0}'>Chi tiết</a>", manv);
+                string m = dataTable.Rows[i][4].ToString().Split(' ')[0];
+                dataTable.Rows[i][4] = m;
             }
             lbDsNhanVien.Text= InterMan.ConvertToHtml(dataTable);
         }
