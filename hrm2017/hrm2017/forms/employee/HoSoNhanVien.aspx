@@ -10,7 +10,7 @@
 
         </div>
         <div class="panel-body">
-            <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Thêm </a>
+            <a href="ThongTinNhanVien.aspx" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Thêm </a>
             <br /><br />
             <asp:Label ID="lbDsNhanVien" runat="server" />
         </div>

@@ -69,6 +69,7 @@
     <Content Include="Default.aspx" />
     <Content Include="forms\config\QuanLyPhongBan.aspx" />
     <Content Include="forms\employee\HoSoNhanVien.aspx" />
+    <Content Include="forms\employee\ThongTinNhanVien.aspx" />
     <Content Include="forms\Home.aspx" />
     <Content Include="Main.Master" />
     <None Include="packages.config" />
@@ -1152,6 +1153,13 @@
     </Compile>
     <Compile Include="forms\employee\HoSoNhanVien.aspx.designer.cs">
       <DependentUpon>HoSoNhanVien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\employee\ThongTinNhanVien.aspx.cs">
+      <DependentUpon>ThongTinNhanVien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\employee\ThongTinNhanVien.aspx.designer.cs">
+      <DependentUpon>ThongTinNhanVien.aspx</DependentUpon>
     </Compile>
     <Compile Include="forms\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

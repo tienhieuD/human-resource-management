@@ -36,7 +36,7 @@ namespace hrm2017.forms.employee
 
                 int n = dataTable.Columns.Count-1;
                 string manv = dataTable.Rows[i][1].ToString();
-                dataTable.Rows[i][n] = string.Format("<a href='/ahihi?manv={0}'>Chi tiết</a>",manv);
+                dataTable.Rows[i][n] = string.Format("<a href='ThongTinNhanVien.aspx?manv={0}'>Chi tiết</a>",manv);
             }
             lbDsNhanVien.Text= InterMan.ConvertToHtml(dataTable);
         }
