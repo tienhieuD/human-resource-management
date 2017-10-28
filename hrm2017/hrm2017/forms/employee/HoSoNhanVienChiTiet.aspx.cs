@@ -161,7 +161,14 @@ namespace hrm2017.forms.employee
         protected void btnSua_Luu_Click(object sender, EventArgs e)
         {
             //SQL update ở đây
-            Response.Redirect("");
+            try
+            {
+                Response.Redirect("");
+            }
+            catch
+            {
+                lbTenNV.Text = "";
+            }
         }
     }
 }
