@@ -23,36 +23,9 @@ namespace hrm2017.forms.employee
                 switch (thaoTac)
                 {
                     case "xem":
-                        //Display
                         btnSua.Visible = true;
                         btnXoa.Visible = true;
-                        //Load data
-                        DataTable dt = DataMan.GetDataTable(
-                        string.Format(@"SELECT *
-                        FROM [HRM].[DBO].[TBL_NHANVIEN] 
-                        LEFT JOIN [HRM].[DBO].[TBL_PHONGBAN] 
-                        ON [HRM].[DBO].[TBL_NHANVIEN].[PHONGBAN] = [HRM].[DBO].[TBL_PHONGBAN].[MAPB]
-                        LEFT JOIN TBL_CHUCVU 
-                        ON [TBL_NHANVIEN].[CHUCVU] =  TBL_CHUCVU.MACV 
-                        WHERE [MANV] = '{0}'", manv));
-                        lbTenNV.Text = dt.Rows[0]["HOTEN"].ToString();
-                        txtManv.Text = dt.Rows[0][0].ToString();
-                        txtHoTen.Text = dt.Rows[0][1].ToString();
-                        txtNgaysinh.Text = Convert.ToDateTime(dt.Rows[0][3].ToString()).ToString("yyyy-MM-dd");
-                        txtNoiSinh.Text = dt.Rows[0][4].ToString();
-                        txtDiaChi.Text = dt.Rows[0][5].ToString();
-                        txtQuequan.Text = dt.Rows[0][6].ToString();
-                        txtSDT.Text = dt.Rows[0][7].ToString();
-                        lstDanToc.Text = dt.Rows[0][8].ToString();
-                        txtTonGiao.Text = dt.Rows[0][9].ToString();
-                        txtSocmt.Text = dt.Rows[0][10].ToString();
-                        txtEmail.Text = dt.Rows[0][11].ToString();
-                        lstChucVu.SelectedValue = dt.Rows[0]["CHUCVU"].ToString();
-                        lstPhongBan.SelectedValue = dt.Rows[0]["PHONGBAN"].ToString();
-                        txtGhiChu.Text = dt.Rows[0]["GHICHU"].ToString();
-                        bool gt = bool.Parse(dt.Rows[0]["GIOITINH"].ToString());
-                        rb_Nam.Checked = gt;
-                        rb_Nu.Checked = !gt;
+                        LoadThongTinNhanVien(manv);
                         break;
 
                     case "them":
@@ -62,6 +35,9 @@ namespace hrm2017.forms.employee
                         break;
 
                     case "sua":
+                        pnlMain.Enabled = true;
+                        btnSua_Luu.Visible = true;
+                        LoadThongTinNhanVien(manv);
                         break;
 
                     case "xoa":
@@ -71,6 +47,64 @@ namespace hrm2017.forms.employee
                         break;
                 }
             }
+        }
+
+        private void LoadThongTinNhanVien(string manv)
+        {
+            DataTable dt = DataMan.GetDataTable(
+                string.Format(@"SELECT *
+                    FROM [HRM].[DBO].[TBL_NHANVIEN] 
+                    LEFT JOIN [HRM].[DBO].[TBL_PHONGBAN] 
+                    ON [HRM].[DBO].[TBL_NHANVIEN].[PHONGBAN] = [HRM].[DBO].[TBL_PHONGBAN].[MAPB]
+                    LEFT JOIN TBL_CHUCVU 
+                    ON [TBL_NHANVIEN].[CHUCVU] =  TBL_CHUCVU.MACV 
+                    WHERE [MANV] = '{0}'", manv));
+            lbTenNV.Text = dt.Rows[0]["HOTEN"].ToString();
+            txtManv.Text = dt.Rows[0][0].ToString();
+            txtHoTen.Text = dt.Rows[0][1].ToString();
+            txtNgaysinh.Text = Convert.ToDateTime(dt.Rows[0][3].ToString()).ToString("yyyy-MM-dd");
+            txtNoiSinh.Text = dt.Rows[0][4].ToString();
+            txtDiaChi.Text = dt.Rows[0][5].ToString();
+            txtQuequan.Text = dt.Rows[0][6].ToString();
+            txtSDT.Text = dt.Rows[0][7].ToString();
+            lstDanToc.Text = dt.Rows[0][8].ToString();
+            txtTonGiao.Text = dt.Rows[0][9].ToString();
+            txtSocmt.Text = dt.Rows[0][10].ToString();
+            txtEmail.Text = dt.Rows[0][11].ToString();
+            lstChucVu.SelectedValue = dt.Rows[0]["CHUCVU"].ToString();
+            lstPhongBan.SelectedValue = dt.Rows[0]["PHONGBAN"].ToString();
+            txtGhiChu.Text = dt.Rows[0]["GHICHU"].ToString();
+            bool gt = bool.Parse(dt.Rows[0]["GIOITINH"].ToString());
+            rb_Nam.Checked = gt;
+            rb_Nu.Checked = !gt;
+
+            //Trinh do hoc van
+            string sql_hocVan = string.Format(
+                @"select TENTRINHDO
+                from tbl_nhanvientrinhdohocvan
+                join tbl_trinhdohocvan
+                on tbl_nhanvientrinhdohocvan.TDHVMATD = tbl_trinhdohocvan.MATD
+                Where NHANVIENMANV = '{0}'", manv);
+            string hocVan = "";
+            DataTable dataTable_HocVan = DataMan.GetDataTable(sql_hocVan);
+            for (int i = 0; i < dataTable_HocVan.Rows.Count; i++)
+                hocVan += dataTable_HocVan.Rows[i][0].ToString() +
+                    ((i != dataTable_HocVan.Rows.Count - 1) ? ", " : " ");
+            txtTdHocVan.Text = hocVan;
+
+            //Trinh do ngoai nghu
+            string sql_NgoaiNgu = string.Format(
+                @"select TENTRINHDONN
+                from tbl_nhanvientrinhdongoaingu
+                join tbl_trinhdongoaingu 
+                on tbl_nhanvientrinhdongoaingu.TDNNMATDNN = tbl_trinhdongoaingu.MATRNN
+                Where NHANVIENMANV = '{0}'", manv);
+            string ngoaiNgu = "";
+            DataTable dataTable_NgoaiNgu = DataMan.GetDataTable(sql_NgoaiNgu);
+            for (int i = 0; i < dataTable_NgoaiNgu.Rows.Count; i++)
+                ngoaiNgu += dataTable_NgoaiNgu.Rows[i][0].ToString() +
+                    ((i != dataTable_NgoaiNgu.Rows.Count - 1) ? ", " : " ");
+            txtTdNgoaiNgu.Text = ngoaiNgu;
         }
 
         private void LoadListChucVu()
@@ -122,6 +156,12 @@ namespace hrm2017.forms.employee
         {
             string manv = Request.QueryString["manv"];
             Response.Redirect(string.Format("HoSoNhanVienChiTiet.aspx?thaotac=xoa&manv={0}", manv));
+        }
+
+        protected void btnSua_Luu_Click(object sender, EventArgs e)
+        {
+            //SQL update ở đây
+            Response.Redirect("");
         }
     }
 }

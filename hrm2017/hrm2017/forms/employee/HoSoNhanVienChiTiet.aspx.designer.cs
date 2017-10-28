@@ -31,6 +31,15 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.Button btnSua;
         
         /// <summary>
+        /// btnSua_Luu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSua_Luu;
+        
+        /// <summary>
         /// btnXoa control.
         /// </summary>
         /// <remarks>
@@ -191,6 +200,24 @@ namespace hrm2017.forms.employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGhiChu;
+        
+        /// <summary>
+        /// txtTdHocVan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTdHocVan;
+        
+        /// <summary>
+        /// txtTdNgoaiNgu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTdNgoaiNgu;
         
         /// <summary>
         /// btnThem control.

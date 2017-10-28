@@ -15,6 +15,8 @@
             <div class="panel-body">
                 <asp:Button ID="btnSua" runat="server" class="btn btn-primary" 
                     Text="Sửa thông tin nhân viên" Visible="false" OnClick="btnSua_Click"/> 
+                <asp:Button ID="btnSua_Luu" runat="server" class="btn btn-primary" 
+                    Text="Lưu lại" Visible="false" OnClick="btnSua_Luu_Click"/> 
                 <asp:Button ID="btnXoa" runat="server" class="btn btn-danger" 
                     Text="Xóa nhân viên" Visible="false" OnClick="btnXoa_Click"/>
                 <br /><br />
@@ -164,6 +166,20 @@
                     <label class="col-sm-2 col-form-label">Ghi chú</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtGhiChu" runat="server" class="form-control"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Trình độ học vấn</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox ID="txtTdHocVan" runat="server" class="form-control"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Trình độ ngoại ngữ</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox ID="txtTdNgoaiNgu" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
 
