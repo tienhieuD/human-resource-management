@@ -32,15 +32,19 @@ namespace hrm2017.forms.employee
                         pnlMain.Enabled = true;
                         btnThem.Visible = true;
                         txtManv.ReadOnly = true;
+                        txtHoTen.Focus();
                         break;
 
                     case "sua":
                         pnlMain.Enabled = true;
                         btnSua_Luu.Visible = true;
+                        txtManv.ReadOnly = true;
+                        txtHoTen.Focus();
                         LoadThongTinNhanVien(manv);
                         break;
 
                     case "xoa":
+
                         break;
 
                     default:
@@ -48,7 +52,7 @@ namespace hrm2017.forms.employee
                 }
             }
         }
-
+       
         private void LoadThongTinNhanVien(string manv)
         {
             DataTable dt = DataMan.GetDataTable(
@@ -129,6 +133,7 @@ namespace hrm2017.forms.employee
 
         protected void btnThem_Click(object sender, EventArgs e)
         {
+           
             int gt = rb_Nam.Checked ? 1 : 0;
             string sql = string.Format(
                 @"INSERT INTO [dbo].[tbl_nhanvien]
@@ -155,7 +160,12 @@ namespace hrm2017.forms.employee
         protected void btnXoa_Click(object sender, EventArgs e)
         {
             string manv = Request.QueryString["manv"];
-            Response.Redirect(string.Format("HoSoNhanVienChiTiet.aspx?thaotac=xoa&manv={0}", manv));
+            string sql = string.Format(@" 
+                UPDATE [hrm].[dbo].[tbl_nhanvien]
+                SET ACTIVE = N'False' WHERE MANV = {0}", manv);
+            DataMan.ExcuteCommand(sql);
+            Response.Redirect("HoSoNhanVien.aspx");
+            lbThongbao.Text = "Xóa thành công";
         }
 
         protected void btnSua_Luu_Click(object sender, EventArgs e)
@@ -163,11 +173,38 @@ namespace hrm2017.forms.employee
             //SQL update ở đây
             try
             {
-                Response.Redirect("");
+                txtManv.ReadOnly = true;
+                string manv = Request.QueryString["manv"];
+                int gt = rb_Nam.Checked ? 1 : 0;
+                string sql = string.Format(@"
+                UPDATE [hrm].[dbo].[tbl_nhanvien]
+                SET [HOTEN] = N'{1}'
+                    ,[GIOITINH] = N'{2}'
+                    ,[NGAYSINH] = N'{3}'
+                    ,[NOISINH] = N'{4}'
+                    ,[DIACHI] = N'{5}'
+                    ,[QUEQUAN] = N'{6}'
+                    ,[SODIENTHOAI] = N'{7}'
+                    ,[DANTOC] = N'{8}'
+                    ,[TONGIAO] = N'{9}'
+                    ,[SOCMT] = N'{10}'
+                    ,[EMAIL] = N'{11}'
+                    ,[CHUCVU] = N'{12}'
+                    ,[PHONGBAN] = N'{13}'
+                    ,[GHICHU] = N'{14}'
+                WHERE MANV = {0}",manv, txtHoTen.Text, gt, txtNgaysinh.Text,
+                txtNoiSinh.Text, txtDiaChi.Text, txtQuequan.Text, txtSDT.Text, lstDanToc.SelectedValue.ToString(),
+                txtTonGiao.Text, txtSocmt.Text, txtEmail.Text, lstChucVu.SelectedValue.ToString(), lstPhongBan.SelectedValue.ToString(),
+                txtGhiChu.Text);
+                DataMan.ExcuteCommand(sql);
+                Response.Redirect(string.Format("HoSoNhanVienChiTiet.aspx?thaotac=xem&manv={0}",manv));
+                lbThongbao.Text = "Sửa thành công";
+                
             }
-            catch
+            catch(Exception ex)
             {
-                lbTenNV.Text = "";
+                
+                lbThongbao.Text = "sai";
             }
         }
     }

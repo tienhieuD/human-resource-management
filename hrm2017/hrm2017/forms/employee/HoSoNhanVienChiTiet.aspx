@@ -9,7 +9,8 @@
         <div class="content-box-large">
             <div class="panel-heading">
                 <div class="panel-title">HỒ SƠ NHÂN VIÊN:
-                    <asp:Label ID="lbTenNV" runat="server" style="text-transform:uppercase;"/>
+                    <small><asp:Label ID="lbTenNV" runat="server" style="text-transform:uppercase;"/></small><br />
+                   <asp:Label ID="lbThongbao" runat="server" Text=""></asp:Label>
                 </div>
             </div>
             <div class="panel-body">
@@ -24,13 +25,17 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Mã Nhân viên:</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtManv" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtManv" runat="server" class="form-control"></asp:TextBox> 
+                        
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Họ Tên:</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtHoTen" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtHoTen" runat="server" class="form-control"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="error_hoten" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtHoTen">
+
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -49,25 +54,35 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Nơi Sinh</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtNoiSinh" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtNoiSinh" runat="server" class="form-control"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="error_noisinh" runat="server" ControlToValidate="txtNoiSinh"  ErrorMessage="Trường này không được để trống">
+
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Địa Chỉ</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtDiaChi" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtDiaChi" runat="server" class="form-control"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="error_diachi" runat="server" ControlToValidate="txtDiaChi"  ErrorMessage="Trường này không được để trống">
+
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Quê Quán</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtQuequan" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtQuequan" runat="server" class="form-control"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="error_quequan" runat="server" ControlToValidate="txtQueQuan"  ErrorMessage="Trường này không được để trống">
+
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Số Điện Thoại</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtSDT" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtSDT" runat="server" class="form-control"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtSDT"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -135,19 +150,28 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Tôn Giáo</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtTonGiao" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtTonGiao" runat="server" class="form-control"></asp:TextBox><br />
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTonGiao"  ErrorMessage="Trường này không được để trống">
+
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Số CMT</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtSocmt" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtSocmt" runat="server" class="form-control"></asp:TextBox><br />
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtSocmt"  ErrorMessage="Trường này không được để trống">
+
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtEmail" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" class="form-control"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtEmail">
+
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -165,7 +189,8 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Ghi chú</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtGhiChu" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtGhiChu" runat="server" class="form-control"></asp:TextBox><br />
+                        
                     </div>
                 </div>
 

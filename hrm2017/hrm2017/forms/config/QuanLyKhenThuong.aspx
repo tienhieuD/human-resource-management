@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="QuanLyPhongBan.aspx.cs" Inherits="hrm2017.forms.config.QuanLyPhongBan" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="QuanLyKhenThuong.aspx.cs" Inherits="hrm2017.forms.config.QuanLyKhenThuong" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
@@ -14,26 +14,26 @@
         </div>
          
         <div class="panel-body">
-            <asp:Panel ID="pnDSPB" runat="server" >
-                <a href="QuanLyPhongBan.aspx?thaotac=them" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Thêm </a>
+            <asp:Panel ID="pnDSKL" runat="server" >
+                <a href="QuanLyKhenThuong.aspx?thaotac=them" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Thêm </a>
                 <br /><br />
-                <asp:Label ID="lbDsPhongBan" runat="server" />
+                <asp:Label ID="lbDsKhenThuong" runat="server" />
             </asp:Panel>
             <asp:Panel ID="pn2" runat="server" Visible="false">
                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Mã Phòng Ban</label>
+                    <label class="col-sm-2 col-form-label">Mã Kỷ Luật</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtMaPB" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtMaPB">
+                        <asp:TextBox ID="txtMaKT" runat="server" class="form-control"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtMaKT">
 
                         </asp:RequiredFieldValidator>
                     </div>
                 </div>
                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Tên Phòng Ban</label>
+                    <label class="col-sm-2 col-form-label">Tên Hình Thức Kỷ Luật</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtTenPB" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtTenPB">
+                        <asp:TextBox ID="txtTenKT" runat="server" class="form-control"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtTenKT">
 
                         </asp:RequiredFieldValidator>
                     </div>

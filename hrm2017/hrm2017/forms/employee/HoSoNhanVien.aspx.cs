@@ -27,7 +27,7 @@ namespace hrm2017.forms.employee
                 ,[TBL_PHONGBAN].[TENPB] AS 'PHÒNG BAN'
                 FROM [HRM].[DBO].[TBL_NHANVIEN] 
                 LEFT JOIN [HRM].[DBO].[TBL_PHONGBAN] ON [HRM].[DBO].[TBL_NHANVIEN].[PHONGBAN] = [HRM].[DBO].[TBL_PHONGBAN].[MAPB]
-                LEFT JOIN TBL_CHUCVU ON [TBL_NHANVIEN].[CHUCVU] =  TBL_CHUCVU.MACV ";
+                LEFT JOIN TBL_CHUCVU ON [TBL_NHANVIEN].[CHUCVU] =  TBL_CHUCVU.MACV WHERE ACTIVE = N'True'";
             DataTable dataTable = DataMan.GetDataTable(sql);
             dataTable.Columns.Add("CHI TIẾT");
 

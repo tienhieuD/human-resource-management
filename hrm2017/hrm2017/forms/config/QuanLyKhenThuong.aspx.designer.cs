@@ -10,7 +10,7 @@
 namespace hrm2017.forms.config {
     
     
-    public partial class QuanLyPhongBan {
+    public partial class QuanLyKhenThuong {
         
         /// <summary>
         /// lbTieude control.
@@ -31,22 +31,22 @@ namespace hrm2017.forms.config {
         protected global::System.Web.UI.WebControls.Label lbThongbao;
         
         /// <summary>
-        /// pnDSPB control.
+        /// pnDSKL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnDSPB;
+        protected global::System.Web.UI.WebControls.Panel pnDSKL;
         
         /// <summary>
-        /// lbDsPhongBan control.
+        /// lbDsKhenThuong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbDsPhongBan;
+        protected global::System.Web.UI.WebControls.Label lbDsKhenThuong;
         
         /// <summary>
         /// pn2 control.
@@ -58,13 +58,13 @@ namespace hrm2017.forms.config {
         protected global::System.Web.UI.WebControls.Panel pn2;
         
         /// <summary>
-        /// txtMaPB control.
+        /// txtMaKT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMaPB;
+        protected global::System.Web.UI.WebControls.TextBox txtMaKT;
         
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -76,13 +76,13 @@ namespace hrm2017.forms.config {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// txtTenPB control.
+        /// txtTenKT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTenPB;
+        protected global::System.Web.UI.WebControls.TextBox txtTenKT;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
