@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="forms\attendence\ChamCong.aspx" />
     <Content Include="forms\config\QuanLyKhenThuong.aspx" />
     <Content Include="forms\config\QuanLyKyLuat.aspx" />
     <Content Include="forms\config\QuanLyPhongBan.aspx" />
@@ -79,6 +80,7 @@
     <Content Include="styles\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="styles\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="styles\jquery.js" />
+    <Content Include="styles\jquery.min.js" />
     <Content Include="styles\LICENSE" />
     <Content Include="styles\README.md" />
     <Content Include="styles\vendors\bootstrap-wysihtml5\component.json" />
@@ -1142,6 +1144,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="forms\attendence\ChamCong.aspx.cs">
+      <DependentUpon>ChamCong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\attendence\ChamCong.aspx.designer.cs">
+      <DependentUpon>ChamCong.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forms\config\QuanLyKhenThuong.aspx.cs">
       <DependentUpon>QuanLyKhenThuong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1196,7 +1205,6 @@
     <Compile Include="DataMan.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="forms\attendence\" />
     <Folder Include="forms\report\" />
     <Folder Include="forms\salary\" />
   </ItemGroup>

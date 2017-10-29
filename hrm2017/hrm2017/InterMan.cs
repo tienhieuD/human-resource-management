@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace hrm2017
 {
@@ -26,6 +27,16 @@ namespace hrm2017
             }
             table = "<table  class='table table-striped table-bordered dataTable'>" + tr + "</table>";
             return table;
+        }
+
+
+        public static void LoadDropDownList(DropDownList dropDownList, string[] data)
+        {
+            DataTable dataTable = DataMan.GetDataTable(data[0]);
+            dropDownList.DataSource = dataTable;
+            dropDownList.DataTextField = data[2];
+            dropDownList.DataValueField = data[1];
+            dropDownList.DataBind();
         }
     }
 }

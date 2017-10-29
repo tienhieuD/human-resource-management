@@ -203,7 +203,6 @@ namespace hrm2017.forms.employee
             }
             catch(Exception ex)
             {
-                
                 lbThongbao.Text = "sai";
             }
         }
