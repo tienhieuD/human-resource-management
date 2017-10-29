@@ -68,11 +68,15 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="forms\attendence\ChamCong.aspx" />
+    <Content Include="forms\config\QuanLyChucVu.aspx" />
     <Content Include="forms\config\QuanLyKhenThuong.aspx" />
     <Content Include="forms\config\QuanLyKyLuat.aspx" />
     <Content Include="forms\config\QuanLyPhongBan.aspx" />
+    <Content Include="forms\employee\HoSoKhenThuong.aspx" />
+    <Content Include="forms\employee\HoSoKyLuat.aspx" />
     <Content Include="forms\employee\HoSoNhanVien.aspx" />
     <Content Include="forms\employee\HoSoNhanVienChiTiet.aspx" />
+    <Content Include="forms\employee\DieuChuyenCongTac.aspx" />
     <Content Include="forms\Home.aspx" />
     <Content Include="Main.Master" />
     <None Include="packages.config" />
@@ -1150,6 +1154,13 @@
     </Compile>
     <Compile Include="forms\attendence\ChamCong.aspx.designer.cs">
       <DependentUpon>ChamCong.aspx</DependentUpon>
+	</Compile>
+    <Compile Include="forms\config\QuanLyChucVu.aspx.cs">
+      <DependentUpon>QuanLyChucVu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\config\QuanLyChucVu.aspx.designer.cs">
+      <DependentUpon>QuanLyChucVu.aspx</DependentUpon>
     </Compile>
     <Compile Include="forms\config\QuanLyKhenThuong.aspx.cs">
       <DependentUpon>QuanLyKhenThuong.aspx</DependentUpon>
@@ -1172,6 +1183,20 @@
     <Compile Include="forms\config\QuanLyPhongBan.aspx.designer.cs">
       <DependentUpon>QuanLyPhongBan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="forms\employee\HoSoKhenThuong.aspx.cs">
+      <DependentUpon>HoSoKhenThuong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\employee\HoSoKhenThuong.aspx.designer.cs">
+      <DependentUpon>HoSoKhenThuong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\employee\HoSoKyLuat.aspx.cs">
+      <DependentUpon>HoSoKyLuat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\employee\HoSoKyLuat.aspx.designer.cs">
+      <DependentUpon>HoSoKyLuat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forms\employee\HoSoNhanVien.aspx.cs">
       <DependentUpon>HoSoNhanVien.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1185,6 +1210,13 @@
     </Compile>
     <Compile Include="forms\employee\HoSoNhanVienChiTiet.aspx.designer.cs">
       <DependentUpon>HoSoNhanVienChiTiet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\employee\DieuChuyenCongTac.aspx.cs">
+      <DependentUpon>DieuChuyenCongTac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\employee\DieuChuyenCongTac.aspx.designer.cs">
+      <DependentUpon>DieuChuyenCongTac.aspx</DependentUpon>
     </Compile>
     <Compile Include="forms\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
