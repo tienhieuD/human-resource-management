@@ -81,6 +81,7 @@
     <Content Include="forms\salary\HopDong.aspx" />
     <Content Include="forms\salary\HopDongChiTiet.aspx" />
     <Content Include="forms\salary\LapBangLuong.aspx" />
+    <Content Include="forms\salary\TraLuong.aspx" />
     <Content Include="Main.Master" />
     <None Include="packages.config" />
     <Content Include="styles\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -1248,6 +1249,13 @@
     </Compile>
     <Compile Include="forms\salary\LapBangLuong.aspx.designer.cs">
       <DependentUpon>LapBangLuong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\salary\TraLuong.aspx.cs">
+      <DependentUpon>TraLuong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\salary\TraLuong.aspx.designer.cs">
+      <DependentUpon>TraLuong.aspx</DependentUpon>
     </Compile>
     <Compile Include="InterMan.cs" />
     <Compile Include="Main.Master.cs">
