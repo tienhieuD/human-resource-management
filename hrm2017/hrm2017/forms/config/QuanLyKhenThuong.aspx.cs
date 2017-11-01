@@ -23,7 +23,8 @@ namespace hrm2017.forms.config
                     case "them":
                         pn2.Visible = true;
                         pnDSKL.Visible = false;
-
+                        Them_maKT();
+                        txtMaKT.ReadOnly = true;
                         btn_them.Visible = true;
 
                         lbTieude.Text = "THÊM KHEN THƯỞNG";
@@ -82,21 +83,12 @@ namespace hrm2017.forms.config
         }
         protected void btn_them_Click(object sender, EventArgs e)
         {
-            string sql_check_ma = string.Format(@"SELECT * FROM tbl_khenthuong WHERE MAKHENTHUONG = '{0}'", txtMaKT.Text);
-            DataTable dt = DataMan.GetDataTable(sql_check_ma);
-
-            if (dt.Rows.Count > 0)
-            {
-                lbThongbao.Text = "Mã đã tồn tại";
-            }
-            else
-            {
-                string sql = string.Format(@"
-                INSERT INTO [hrm].[dbo].[tbl_khenthuong] ([MAKHENTHUONG],[TENKHENTHUONG])
-                VALUES (N'{0}',N'{1}')", txtMaKT.Text, txtTenKT.Text);
-                DataMan.ExcuteCommand(sql);
-                lbThongbao.Text = "Thêm thành công";
-            }
+            string sql = string.Format(@"
+            INSERT INTO [hrm].[dbo].[tbl_khenthuong] ([MAKHENTHUONG],[TENKHENTHUONG])
+            VALUES ('{0}',N'{1}')",txtMaKT.Text,txtTenKT.Text);
+            DataMan.ExcuteCommand(sql);
+            Response.Redirect("QuanLyKhenThuong.aspx");
+    
         }
         protected void btn_sua_Click(object sender, EventArgs e)
         {
@@ -131,6 +123,13 @@ namespace hrm2017.forms.config
             {
                 lbThongbao.Text = "Thất bại";
             }
+        }
+        void Them_maKT()
+        {
+            string tang_ma = @"select MAKHENTHUONG from tbl_khenthuong order by MAKHENTHUONG DESC";
+            DataTable db = DataMan.GetDataTable(tang_ma);
+            int ma_cuoi = Convert.ToInt16(db.Rows[0][0].ToString()) + 1;
+            txtMaKT.Text = ma_cuoi.ToString();
         }
     }
 }

@@ -21,7 +21,7 @@
             </asp:Panel>
             <asp:Panel ID="pn2" runat="server" Visible="false">
                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Mã Phòng Ban</label>
+                    <label class="col-sm-2 col-form-label">Mã kỷ luật</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtMaKL" runat="server" class="form-control"></asp:TextBox><br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtMaKL">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Tên Phòng Ban</label>
+                    <label class="col-sm-2 col-form-label">Tên kỷ luật</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtTenKL" runat="server" class="form-control"></asp:TextBox><br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtTenKL">
