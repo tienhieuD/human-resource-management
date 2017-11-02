@@ -84,32 +84,32 @@ namespace hrm2017.forms.employee
             rb_Nu.Checked = !gt;
 
             //Trinh do hoc van
-            string sql_hocVan = string.Format(
-                @"select TENTRINHDO
-                from tbl_nhanvientrinhdohocvan
-                join tbl_trinhdohocvan
-                on tbl_nhanvientrinhdohocvan.TDHVMATD = tbl_trinhdohocvan.MATD
-                Where NHANVIENMANV = '{0}'", manv);
-            string hocVan = "";
-            DataTable dataTable_HocVan = DataMan.GetDataTable(sql_hocVan);
-            for (int i = 0; i < dataTable_HocVan.Rows.Count; i++)
-                hocVan += dataTable_HocVan.Rows[i][0].ToString() +
-                    ((i != dataTable_HocVan.Rows.Count - 1) ? ", " : " ");
-            txtTdHocVan.Text = hocVan;
+            //string sql_hocVan = string.Format(
+            //    @"select TENTRINHDO
+            //    from tbl_nhanvientrinhdohocvan
+            //    join tbl_trinhdohocvan
+            //    on tbl_nhanvientrinhdohocvan.TDHVMATD = tbl_trinhdohocvan.MATD
+            //    Where NHANVIENMANV = '{0}'", manv);
+            //string hocVan = "";
+            //DataTable dataTable_HocVan = DataMan.GetDataTable(sql_hocVan);
+            //for (int i = 0; i < dataTable_HocVan.Rows.Count; i++)
+            //    hocVan += dataTable_HocVan.Rows[i][0].ToString() +
+            //        ((i != dataTable_HocVan.Rows.Count - 1) ? ", " : " ");
+            //txtTdHocVan.Text = hocVan;
 
             //Trinh do ngoai nghu
-            string sql_NgoaiNgu = string.Format(
-                @"select TENTRINHDONN
-                from tbl_nhanvientrinhdongoaingu
-                join tbl_trinhdongoaingu 
-                on tbl_nhanvientrinhdongoaingu.TDNNMATDNN = tbl_trinhdongoaingu.MATRNN
-                Where NHANVIENMANV = '{0}'", manv);
-            string ngoaiNgu = "";
-            DataTable dataTable_NgoaiNgu = DataMan.GetDataTable(sql_NgoaiNgu);
-            for (int i = 0; i < dataTable_NgoaiNgu.Rows.Count; i++)
-                ngoaiNgu += dataTable_NgoaiNgu.Rows[i][0].ToString() +
-                    ((i != dataTable_NgoaiNgu.Rows.Count - 1) ? ", " : " ");
-            txtTdNgoaiNgu.Text = ngoaiNgu;
+            //string sql_NgoaiNgu = string.Format(
+            //    @"select TENTRINHDONN
+            //    from tbl_nhanvientrinhdongoaingu
+            //    join tbl_trinhdongoaingu 
+            //    on tbl_nhanvientrinhdongoaingu.TDNNMATDNN = tbl_trinhdongoaingu.MATRNN
+            //    Where NHANVIENMANV = '{0}'", manv);
+            //string ngoaiNgu = "";
+            //DataTable dataTable_NgoaiNgu = DataMan.GetDataTable(sql_NgoaiNgu);
+            //for (int i = 0; i < dataTable_NgoaiNgu.Rows.Count; i++)
+            //    ngoaiNgu += dataTable_NgoaiNgu.Rows[i][0].ToString() +
+            //        ((i != dataTable_NgoaiNgu.Rows.Count - 1) ? ", " : " ");
+            //txtTdNgoaiNgu.Text = ngoaiNgu;
         }
 
         private void LoadListChucVu()

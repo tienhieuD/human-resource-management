@@ -5,7 +5,7 @@
     Năm: <asp:DropDownList ID ="lstNam" runat="server"  AutoPostBack="True" />
     Tháng: <asp:DropDownList ID ="lstThang" runat="server"  AutoPostBack="True" />
     <asp:Button ID="btnLapBangLuongThang" runat="server" OnClick="btnLapBangLuongThang_Click" Text="Lập bảng lương" />
-
+    <asp:Button ID="btnLuuBangLuong" runat="server" OnClick="btnLuuBangLuong_Click" Text="Lưu bảng lương tháng và tiến hành trả lương" />
     <br />
     <asp:Label ID="lbBangLuong" runat="server" />
 </asp:Content>
