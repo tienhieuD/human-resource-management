@@ -121,7 +121,7 @@ namespace hrm2017.forms.employee
         protected void btn_them_Click(object sender, EventArgs e)
         {
             string sql = string.Format(@"
-                INSERT INTO [hrm].[dbo].[tbl_kyluatnhanvien]
+                INSERT INTO [dbo].[tbl_kyluatnhanvien]
                        ([KYLUATMAKL]
                        ,[NHANVIEN]
                        ,[NGAYKYLUAT]
@@ -145,7 +145,7 @@ namespace hrm2017.forms.employee
         {
             string manv = Request.QueryString["manv"];
             string sql = string.Format(@"
-                DELETE FROM [hrm].[dbo].[tbl_kyluatnhanvien]
+                DELETE FROM [dbo].[tbl_kyluatnhanvien]
                 WHERE NHANVIEN = '{0}'", manv);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("HoSoKyLuat.aspx");
@@ -157,7 +157,7 @@ namespace hrm2017.forms.employee
             {
                 string manv = Request.QueryString["manv"];
                 string sql = string.Format(@"
-                UPDATE [hrm].[dbo].[tbl_kyluatnhanvien]
+                UPDATE [dbo].[tbl_kyluatnhanvien]
                    SET [KYLUATMAKL] = N'{1}',
                        [NGAYKYLUAT] = N'{2}',
                        [SOTIEN] = N'{3}',

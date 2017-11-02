@@ -49,11 +49,11 @@
                     </div>
                 </div>
                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">GHI CHÚ</label>
+                    <label class="col-sm-2 col-form-label">ĐÓNG PHẠT</label>
                     <div class="col-sm-10">
                         <asp:DropDownList ID="lstDanhan" runat="server" class="form-control">
-                            <asp:ListItem Value="1">Đã nhận</asp:ListItem>
-                            <asp:ListItem Value="0">Chưa nhận</asp:ListItem>
+                            <asp:ListItem Value="1">Đã đóng phạt</asp:ListItem>
+                            <asp:ListItem Value="0">Chưa đóng phạt</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
