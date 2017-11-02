@@ -78,6 +78,9 @@
     <Content Include="forms\employee\HoSoNhanVienChiTiet.aspx" />
     <Content Include="forms\employee\DieuChuyenCongTac.aspx" />
     <Content Include="forms\Home.aspx" />
+    <Content Include="forms\salary\HopDong.aspx" />
+    <Content Include="forms\salary\HopDongChiTiet.aspx" />
+    <Content Include="forms\salary\LapBangLuong.aspx" />
     <Content Include="Main.Master" />
     <None Include="packages.config" />
     <Content Include="styles\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -1154,7 +1157,7 @@
     </Compile>
     <Compile Include="forms\attendence\ChamCong.aspx.designer.cs">
       <DependentUpon>ChamCong.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="forms\config\QuanLyChucVu.aspx.cs">
       <DependentUpon>QuanLyChucVu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1225,6 +1228,27 @@
     <Compile Include="forms\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="forms\salary\HopDong.aspx.cs">
+      <DependentUpon>HopDong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\salary\HopDong.aspx.designer.cs">
+      <DependentUpon>HopDong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\salary\HopDongChiTiet.aspx.cs">
+      <DependentUpon>HopDongChiTiet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\salary\HopDongChiTiet.aspx.designer.cs">
+      <DependentUpon>HopDongChiTiet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\salary\LapBangLuong.aspx.cs">
+      <DependentUpon>LapBangLuong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\salary\LapBangLuong.aspx.designer.cs">
+      <DependentUpon>LapBangLuong.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InterMan.cs" />
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
@@ -1238,7 +1262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="forms\report\" />
-    <Folder Include="forms\salary\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -20,6 +20,8 @@
                     Text="Lưu lại" Visible="false" OnClick="btnSua_Luu_Click"/> 
                 <asp:Button ID="btnXoa" runat="server" class="btn btn-danger" 
                     Text="Xóa nhân viên" Visible="false" OnClick="btnXoa_Click"/>
+                <asp:Button ID="btnHopDong" runat="server" class="btn btn-default" 
+                    Text="Xem hợp đồng" Visible="false" OnClick="btnHopDong_Click"/>
                 <br /><br />
                 <asp:Panel ID="pnlMain" runat="server" Enabled="false">
                 <div class="form-group row">

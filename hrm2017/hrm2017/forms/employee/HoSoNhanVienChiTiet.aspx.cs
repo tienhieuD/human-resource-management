@@ -25,6 +25,7 @@ namespace hrm2017.forms.employee
                     case "xem":
                         btnSua.Visible = true;
                         btnXoa.Visible = true;
+                        btnHopDong.Visible = true;
                         LoadThongTinNhanVien(manv);
                         break;
 
@@ -205,6 +206,12 @@ namespace hrm2017.forms.employee
             {
                 lbThongbao.Text = "sai";
             }
+        }
+
+        protected void btnHopDong_Click(object sender, EventArgs e)
+        {
+            string manv = Request.QueryString["manv"];
+            Response.Redirect(string.Format("/forms/salary/HopDong.aspx?manv={0}", manv));
         }
     }
 }
