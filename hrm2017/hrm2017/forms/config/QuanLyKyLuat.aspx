@@ -4,7 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 <div class="container">
     <div class="content-box-large">
-       
         <div class="panel-heading">
             <div class="panel-title">
                 <asp:Label runat="server" ID="lbTieude" ></asp:Label><br />

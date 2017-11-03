@@ -74,6 +74,7 @@
     <Content Include="forms\config\QuanLyPhongBan.aspx" />
     <Content Include="forms\config\QuanLyPhuCap.aspx" />
     <Content Include="forms\config\QuanLyPhuCapChucVu.aspx" />
+    <Content Include="forms\config\QuanLyTamUng.aspx" />
     <Content Include="forms\employee\HoSoKhenThuong.aspx" />
     <Content Include="forms\employee\HoSoKyLuat.aspx" />
     <Content Include="forms\employee\HoSoNhanVien.aspx" />
@@ -1189,6 +1190,7 @@
     <Compile Include="forms\config\QuanLyPhongBan.aspx.designer.cs">
       <DependentUpon>QuanLyPhongBan.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="forms\config\QuanLyPhuCap.aspx.cs">
       <DependentUpon>QuanLyPhuCap.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1202,7 +1204,16 @@
     </Compile>
     <Compile Include="forms\config\QuanLyPhuCapChucVu.aspx.designer.cs">
       <DependentUpon>QuanLyPhuCapChucVu.aspx</DependentUpon>
+</Compile>
+
+    <Compile Include="forms\config\QuanLyTamUng.aspx.cs">
+      <DependentUpon>QuanLyTamUng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="forms\config\QuanLyTamUng.aspx.designer.cs">
+      <DependentUpon>QuanLyTamUng.aspx</DependentUpon>
+    </Compile>
+
     <Compile Include="forms\employee\HoSoKhenThuong.aspx.cs">
       <DependentUpon>HoSoKhenThuong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

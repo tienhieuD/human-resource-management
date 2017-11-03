@@ -28,7 +28,7 @@
                     <label class="col-sm-2 col-form-label">Mã Nhân viên:</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtManv" runat="server" class="form-control"></asp:TextBox> 
-                        
+  
                     </div>
                 </div>
                 <div class="form-group row">
@@ -51,6 +51,7 @@
                     <label class="col-sm-2 col-form-label">Ngày Sinh</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtNgaysinh" runat="server" class="form-control" type="date"></asp:TextBox>
+                        <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="bạn chưa nhập ngày sinh" ControlToValidate="txtNgaysinh" Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -84,7 +85,9 @@
                     <label class="col-sm-2 col-form-label">Số Điện Thoại</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtSDT" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtSDT"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtSDT"></asp:RequiredFieldValidator><br /><br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="sai định dạng số điện thoại" ValidationExpression="^([0-9\(\)\/\+ \-]*)$" ControlToValidate="txtSDT"></asp:RegularExpressionValidator>    
+                       
                     </div>
                 </div>
                 <div class="form-group row">
@@ -162,17 +165,15 @@
                     <label class="col-sm-2 col-form-label">Số CMT</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtSocmt" runat="server" class="form-control"></asp:TextBox><br />
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtSocmt"  ErrorMessage="Trường này không được để trống">
-
-                        </asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtSocmt"  ErrorMessage="Trường này không được để trống"></asp:RequiredFieldValidator>
+                         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Sai kiểu dữ liệu" ControlToValidate="txtSocmt" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtEmail" runat="server" class="form-control"></asp:TextBox><br />
+                        <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" class="form-control"></asp:TextBox><br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtEmail">
-
                         </asp:RequiredFieldValidator>
                     </div>
                 </div>
@@ -192,7 +193,7 @@
                     <label class="col-sm-2 col-form-label">Ghi chú</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtGhiChu" runat="server" class="form-control"></asp:TextBox><br />
-                        
+   
                     </div>
                 </div>
 

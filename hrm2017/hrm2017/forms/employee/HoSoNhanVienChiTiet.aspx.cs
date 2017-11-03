@@ -58,9 +58,9 @@ namespace hrm2017.forms.employee
         {
             DataTable dt = DataMan.GetDataTable(
                 string.Format(@"SELECT *
-                    FROM [HRM].[DBO].[TBL_NHANVIEN] 
-                    LEFT JOIN [HRM].[DBO].[TBL_PHONGBAN] 
-                    ON [HRM].[DBO].[TBL_NHANVIEN].[PHONGBAN] = [HRM].[DBO].[TBL_PHONGBAN].[MAPB]
+                    FROM [DBO].[TBL_NHANVIEN] 
+                    LEFT JOIN [DBO].[TBL_PHONGBAN] 
+                    ON [DBO].[TBL_NHANVIEN].[PHONGBAN] = [DBO].[TBL_PHONGBAN].[MAPB]
                     LEFT JOIN TBL_CHUCVU 
                     ON [TBL_NHANVIEN].[CHUCVU] =  TBL_CHUCVU.MACV 
                     WHERE [MANV] = '{0}'", manv));
@@ -83,33 +83,7 @@ namespace hrm2017.forms.employee
             rb_Nam.Checked = gt;
             rb_Nu.Checked = !gt;
 
-            //Trinh do hoc van
-            //string sql_hocVan = string.Format(
-            //    @"select TENTRINHDO
-            //    from tbl_nhanvientrinhdohocvan
-            //    join tbl_trinhdohocvan
-            //    on tbl_nhanvientrinhdohocvan.TDHVMATD = tbl_trinhdohocvan.MATD
-            //    Where NHANVIENMANV = '{0}'", manv);
-            //string hocVan = "";
-            //DataTable dataTable_HocVan = DataMan.GetDataTable(sql_hocVan);
-            //for (int i = 0; i < dataTable_HocVan.Rows.Count; i++)
-            //    hocVan += dataTable_HocVan.Rows[i][0].ToString() +
-            //        ((i != dataTable_HocVan.Rows.Count - 1) ? ", " : " ");
-            //txtTdHocVan.Text = hocVan;
-
-            //Trinh do ngoai nghu
-            //string sql_NgoaiNgu = string.Format(
-            //    @"select TENTRINHDONN
-            //    from tbl_nhanvientrinhdongoaingu
-            //    join tbl_trinhdongoaingu 
-            //    on tbl_nhanvientrinhdongoaingu.TDNNMATDNN = tbl_trinhdongoaingu.MATRNN
-            //    Where NHANVIENMANV = '{0}'", manv);
-            //string ngoaiNgu = "";
-            //DataTable dataTable_NgoaiNgu = DataMan.GetDataTable(sql_NgoaiNgu);
-            //for (int i = 0; i < dataTable_NgoaiNgu.Rows.Count; i++)
-            //    ngoaiNgu += dataTable_NgoaiNgu.Rows[i][0].ToString() +
-            //        ((i != dataTable_NgoaiNgu.Rows.Count - 1) ? ", " : " ");
-            //txtTdNgoaiNgu.Text = ngoaiNgu;
+            
         }
 
         private void LoadListChucVu()
@@ -162,11 +136,11 @@ namespace hrm2017.forms.employee
         {
             string manv = Request.QueryString["manv"];
             string sql = string.Format(@" 
-                UPDATE [hrm].[dbo].[tbl_nhanvien]
+                UPDATE [dbo].[tbl_nhanvien]
                 SET ACTIVE = N'False' WHERE MANV = {0}", manv);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("HoSoNhanVien.aspx");
-            lbThongbao.Text = "Xóa thành công";
+            //lbThongbao.Text = "Xóa thành công";
         }
 
         protected void btnSua_Luu_Click(object sender, EventArgs e)
@@ -178,7 +152,7 @@ namespace hrm2017.forms.employee
                 string manv = Request.QueryString["manv"];
                 int gt = rb_Nam.Checked ? 1 : 0;
                 string sql = string.Format(@"
-                UPDATE [hrm].[dbo].[tbl_nhanvien]
+                UPDATE [dbo].[tbl_nhanvien]
                 SET [HOTEN] = N'{1}'
                     ,[GIOITINH] = N'{2}'
                     ,[NGAYSINH] = N'{3}'
@@ -204,7 +178,7 @@ namespace hrm2017.forms.employee
             }
             catch(Exception ex)
             {
-                lbThongbao.Text = "sai";
+                lbThongbao.Text = ex.ToString();
             }
         }
 

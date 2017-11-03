@@ -93,7 +93,7 @@ namespace hrm2017.forms.config
             else
             {
                 string sql = string.Format(@"
-                INSERT INTO [hrm].[dbo].[tbl_chucvu] ([MACV],[TENCV])
+                INSERT INTO [dbo].[tbl_chucvu] ([MACV],[TENCV])
                 VALUES (N'{0}',N'{1}')", txtMaCV.Text, txtTenCV.Text);
                 DataMan.ExcuteCommand(sql);
                 //lbThongbao.Text = "Thêm thành công";
@@ -112,7 +112,7 @@ namespace hrm2017.forms.config
         {
             string macv = Request.QueryString["macv"];
             string sql = string.Format(@"
-                DELETE [hrm].[dbo].[tbl_chucvu]
+                DELETE [dbo].[tbl_chucvu]
                 WHERE MACV= {0}", macv);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("QuanLyChucVu.aspx");
@@ -124,7 +124,7 @@ namespace hrm2017.forms.config
             {
                 string macv = Request.QueryString["macv"];
                 string sql = string.Format(@"
-                UPDATE [hrm].[dbo].[tbl_chucvu]
+                UPDATE [dbo].[tbl_chucvu]
                 SET [TENCV] = N'{1}'
                 WHERE MACV= {0}", macv, txtTenCV.Text);
                 DataMan.ExcuteCommand(sql);

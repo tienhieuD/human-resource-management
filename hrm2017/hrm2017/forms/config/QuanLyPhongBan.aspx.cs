@@ -24,9 +24,9 @@ namespace hrm2017.forms.config
                     case "them":
                         pn2.Visible = true;
                         pnDSPB.Visible = false;
-                        //txtMaPB.ReadOnly = true;
+                        txtMaPB.ReadOnly = true;
                         btn_them.Visible = true;
-                       
+                        tang_ma();
                         lbTieude.Text = "THÊM PHÒNG BAN";
                         break;
                     case "sua":
@@ -58,7 +58,6 @@ namespace hrm2017.forms.config
             }
            
             loadDanhSachPhongBan();
-            //lbTieude.Text = "DANH SÁCH PHÒNG BAN";
         }
        private void loadDanhSachPhongBan()
         {
@@ -85,23 +84,11 @@ namespace hrm2017.forms.config
         }
         protected void btn_them_Click(object sender, EventArgs e)
         {
-            string sql_check_ma = string.Format(@"SELECT * FROM tbl_phongban WHERE MAPB = '{0}'", txtMaPB.Text);
-            DataTable dt = DataMan.GetDataTable(sql_check_ma);
-
-            if(dt.Rows.Count > 0)
-            {
-                lbThongbao.Text = "Mã phòng ban đã tồn tại";
-            }
-            else
-            {
-                string sql = string.Format(@"
-                INSERT INTO [hrm].[dbo].[tbl_phongban] ([MAPB],[TENPB])
-                VALUES (N'{0}',N'{1}')", txtMaPB.Text, txtTenPB.Text);
-                DataMan.ExcuteCommand(sql);
-                lbThongbao.Text = "Thêm thành công";
-                Response.Redirect("QuanLyPhongBan.aspx?thaotac=them");
-               
-            }
+            string sql = string.Format(@"
+            INSERT INTO [dbo].[tbl_phongban] ([TENPB])
+            VALUES (N'{0}')",txtTenPB.Text);
+            DataMan.ExcuteCommand(sql);
+            Response.Redirect("QuanLyPhongBan.aspx");
         }
 
         protected void btn_sua_Click(object sender, EventArgs e)
@@ -114,7 +101,7 @@ namespace hrm2017.forms.config
         {
             string mapb = Request.QueryString["mapb"];
             string sql = string.Format(@"
-                DELETE [hrm].[dbo].[tbl_phongban]
+                DELETE [dbo].[tbl_phongban]
                 WHERE MAPB= {0}", mapb);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("QuanLyPhongBan.aspx");
@@ -126,7 +113,7 @@ namespace hrm2017.forms.config
             {
                 string mapb = Request.QueryString["mapb"];
                 string sql = string.Format(@"
-                UPDATE [hrm].[dbo].[tbl_phongban]
+                UPDATE [dbo].[tbl_phongban]
                 SET [TENPB] = N'{1}'
                 WHERE MAPB= {0}",mapb,txtTenPB.Text);
                 DataMan.ExcuteCommand(sql);
@@ -137,10 +124,15 @@ namespace hrm2017.forms.config
             {
                 lbThongbao.Text = "Thất bại";
             }
-
-
         }
-
+        private void tang_ma()
+        {
+            string tang_ma = @"select MAPB from tbl_phongban order by MAPB DESC";
+            DataTable db = DataMan.GetDataTable(tang_ma);
+            int ma_cuoi = Convert.ToInt16(db.Rows[0][0].ToString()) + 1;
+            txtMaPB.Text = ma_cuoi.ToString();
+            txtMaPB.ReadOnly = true;
+        }
        
     }
 }
