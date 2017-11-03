@@ -19,8 +19,6 @@ namespace hrm2017.forms.employee
                 loadChucVu();
                 loadPhongBan();
                 loadnv();
-
-
                 switch (thaotac)
                 {
                     case "them":
@@ -38,8 +36,7 @@ namespace hrm2017.forms.employee
                         loadDC();
                         btn_luu.Visible = true;
                         btn_sua.Visible = false;
-                        lstManhanvien.Enabled = false;
-
+                        pnHT.Enabled = false;
                         break;
                     case "xem":
                         pn2.Visible = true;
@@ -69,7 +66,8 @@ namespace hrm2017.forms.employee
                 FROM [dbo].[tbl_chuyencongtac] 
                     INNER JOIN tbl_nhanvien ON tbl_chuyencongtac.MANV = tbl_nhanvien.MANV 
                     INNER JOIN tbl_chucvu ON tbl_chuyencongtac.MACVMOI = tbl_chucvu.MACV
-                    INNER JOIN tbl_phongban ON tbl_chuyencongtac.MAPBMOI = tbl_phongban.MAPB";
+                    INNER JOIN tbl_phongban ON tbl_chuyencongtac.MAPBMOI = tbl_phongban.MAPB
+                WHERE tbl_nhanvien.ACTIVE = N'True'";
             DataTable db = DataMan.GetDataTable(sql);
             db.Columns.Add("CHI TIẾT");
             for (int i = 0; i < db.Rows.Count; i++)
@@ -93,8 +91,7 @@ namespace hrm2017.forms.employee
             lstPB.SelectedValue = db.Rows[0]["MAPBMOI"].ToString();
             txtNgaybanhanh.Text = Convert.ToDateTime(db.Rows[0][2].ToString()).ToString("yyyy-MM-dd");
             txtghichu.Text = db.Rows[0]["GHICHU"].ToString();
-            txtLD.Text = db.Rows[0]["LYDO"].ToString();
-                    
+            txtLD.Text = db.Rows[0]["LYDO"].ToString();      
         }
         private void loadnv()
         {
@@ -139,6 +136,7 @@ namespace hrm2017.forms.employee
                                txtNgaybanhanh.Text,txtLD.Text,lstPB.SelectedValue.ToString(),
                                lstChucvu.SelectedValue.ToString(),txtghichu.Text);
             DataMan.ExcuteCommand(sql);
+            UploadThongTinNV(lstManhanvien.SelectedValue.ToString(), lstPB.SelectedValue.ToString(), lstChucvu.SelectedValue.ToString());
             Response.Redirect("DieuChuyenCongTac.aspx");
         }
 
@@ -174,6 +172,7 @@ namespace hrm2017.forms.employee
                      WHERE MADC = {0}", madc, lstManhanvien.SelectedValue.ToString(), txtNgaybanhanh.Text,
                          txtLD.Text, lstPB.SelectedValue.ToString(), lstChucvu.SelectedValue.ToString(), txtghichu.Text);
                 DataMan.ExcuteCommand(sql);
+                UploadThongTinNV(lstManhanvien.SelectedValue.ToString(), lstPB.SelectedValue.ToString(), lstChucvu.SelectedValue.ToString());
                 Response.Redirect("DieuChuyenCongTac.aspx");
             }
             catch
@@ -181,6 +180,23 @@ namespace hrm2017.forms.employee
                 lbThongbao.Text = "Sửa thất bại!!";
             }
            
+        }
+
+        protected void lstManhanvien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string manv = lstManhanvien.SelectedValue.ToString();
+            string sql = string.Format("SELECT PHONGBAN,CHUCVU from tbl_nhanvien WHERE MANV={0} AND ACTIVE = N'True'", manv);
+            DataTable db = DataMan.GetDataTable(sql);
+            lstChucvu.SelectedValue = db.Rows[0][1].ToString();
+            lstPB.SelectedValue = db.Rows[0][0].ToString();
+        }
+        private void UploadThongTinNV(string manv,string pb,string cv)
+        {
+            string sql = string.Format(@"
+                    UPDATE tbl_nhanvien
+                    SET [PHONGBAN]=N'{1}',[CHUCVU]=N'{2}'
+                    WHERE MANV='{0}'",manv,pb,cv);
+            DataMan.ExcuteCommand(sql);
         }
     }
 }

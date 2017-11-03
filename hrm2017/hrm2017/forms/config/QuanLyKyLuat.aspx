@@ -22,19 +22,13 @@
                  <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Mã kỷ luật</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtMaKL" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtMaKL">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtMaKL" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                  <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Tên kỷ luật</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtTenKL" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtTenKL">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtTenKL" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">

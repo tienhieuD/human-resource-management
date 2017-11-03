@@ -69,6 +69,7 @@
     <Content Include="Default.aspx" />
     <Content Include="forms\attendence\ChamCong.aspx" />
     <Content Include="forms\config\QuanLyChucVu.aspx" />
+    <Content Include="forms\config\QuanLyKhauTru.aspx" />
     <Content Include="forms\config\QuanLyKhenThuong.aspx" />
     <Content Include="forms\config\QuanLyKyLuat.aspx" />
     <Content Include="forms\config\QuanLyPhongBan.aspx" />
@@ -1166,6 +1167,13 @@
     </Compile>
     <Compile Include="forms\config\QuanLyChucVu.aspx.designer.cs">
       <DependentUpon>QuanLyChucVu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\config\QuanLyKhauTru.aspx.cs">
+      <DependentUpon>QuanLyKhauTru.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\config\QuanLyKhauTru.aspx.designer.cs">
+      <DependentUpon>QuanLyKhauTru.aspx</DependentUpon>
     </Compile>
     <Compile Include="forms\config\QuanLyKhenThuong.aspx.cs">
       <DependentUpon>QuanLyKhenThuong.aspx</DependentUpon>

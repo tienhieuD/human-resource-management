@@ -19,6 +19,7 @@
                 <asp:Label ID="lbDsTU" runat="server" />
             </asp:Panel>
             <asp:Panel ID="pn2" runat="server" Visible="false">
+                <asp:Panel ID="pnTU" runat="server">
                  <div class="form-group row">
                     <label class="col-sm-2 col-form-label">MÃ TẠM ỨNG</label>
                     <div class="col-sm-10">
@@ -31,18 +32,17 @@
                         <asp:DropDownList ID="lstHoten" runat="server" CssClass="form-control"></asp:DropDownList>
                     </div>
                 </div>
+                </asp:Panel>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">SỐ  TIỀN</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtSotien" TextMode="Number" CssClass="form-control"  runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtSotien"  CssClass="form-control"  runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">NGÀY TẠM ỨNG</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtNgayung" TextMode="Date" runat="server" CssClass="form-control"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtNgayung">
-                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
                 </asp:Panel>

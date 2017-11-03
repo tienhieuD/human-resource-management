@@ -17,25 +17,19 @@
             <asp:Panel ID="pnDSCV" runat="server" >
                 <a href="QuanLyChucVu.aspx?thaotac=them" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Thêm </a>
                 <br /><br />
-                <asp:Label ID="lbDsPhongBan" runat="server" />
+                <asp:Label ID="lbDsChucVu" runat="server" />
             </asp:Panel>
             <asp:Panel ID="pn2" runat="server" Visible="false">
                  <div class="form-group row">
                     <label class="col-sm-2 col-form-label">MÃ CHỨC VỤ</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtMaCV" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtMaCV">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtMaCV" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                  <div class="form-group row">
                     <label class="col-sm-2 col-form-label">TÊN CHỨC VỤ</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtTenCV" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtTenCV">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtTenCV" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">

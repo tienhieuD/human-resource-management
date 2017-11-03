@@ -37,8 +37,9 @@ namespace hrm2017.forms.employee
                         loadChiTiet();
                         btn_luu.Visible = true;
                         btn_sua.Visible = false;
-                        lstManhanvien.Enabled = false;
-                        
+                        pnHT.Enabled = false;
+                        txtNgaybanhanh.ReadOnly = true;
+                        pnTKT.Enabled = false;
                         break;
                     case "xem":
                         pn2.Visible = true;
@@ -70,6 +71,7 @@ namespace hrm2017.forms.employee
 	                END AS 'GHI CHÚ'
                 FROM tbl_khenthuongnhanvien INNER JOIN tbl_nhanvien ON tbl_khenthuongnhanvien.NHANVIENMANV = tbl_nhanvien.MANV 
 		        INNER JOIN tbl_khenthuong ON tbl_khenthuongnhanvien.KHENTHUONGMAKT = tbl_khenthuong.MAKHENTHUONG
+                WHERE tbl_nhanvien.ACTIVE='True'
             ";
             DataTable db = DataMan.GetDataTable(sql);
             db.Columns.Add("CHI TIẾT");
@@ -157,12 +159,10 @@ namespace hrm2017.forms.employee
                 string manv = Request.QueryString["manv"];
                 string sql = string.Format(@"
                 UPDATE [dbo].[tbl_khenthuongnhanvien]
-                   SET [KHENTHUONGMAKT] = N'{1}',
-                       [NGAYKHENTHUONG] = N'{2}',
-                       [SOTIEN] = N'{3}',
-                       [DANHAN] = N'{4}'
+                   SET [SOTIEN] = N'{1}',
+                       [DANHAN] = N'{2}'
                  WHERE NHANVIENMANV = {0}", manv,
-                     lstTenkhenthuong.SelectedValue.ToString(), txtNgaybanhanh.Text, txtSotien.Text, lstDanhan.SelectedValue.ToString());
+                     txtSotien.Text, lstDanhan.SelectedValue.ToString());
                 DataMan.ExcuteCommand(sql);
                 Response.Redirect("HoSoKhenThuong.aspx");
             }

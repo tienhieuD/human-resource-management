@@ -21,10 +21,10 @@ namespace hrm2017.forms.config
                     case "them":
                         pn2.Visible = true;
                         pnDSKL.Visible = false;
-                       
                         btn_them.Visible = true;
                         Them_maKL();
                         lbTieude.Text = "THÊM KỸ LUẬT";
+                        txtMaKL.ReadOnly = true;
                         break;
                     case "sua":
                         pn2.Visible = true;
@@ -60,13 +60,13 @@ namespace hrm2017.forms.config
         {
             string sql = @"SELECT ROW_NUMBER() over (order by MAKYLUAT) as 'STT', MAKYLUAT as 'MÃ KỸ LUẬT',TENKYLUAT as 'TÊN KỸ LUẬT' FROM tbl_kyluat";
             DataTable db = DataMan.GetDataTable(sql);
+            
             db.Columns.Add("CHI TIẾT");
             for (int i = 0; i < db.Rows.Count; i++)
             {
                 int n = db.Columns.Count - 1;
                 string makl = db.Rows[i][1].ToString();
                 db.Rows[i][n] = string.Format("<a href='QuanLyKyLuat.aspx?thaotac=xem&makl={0}'>Chi tiết</a>", makl);
-
             }
             lbDsKyLuat.Text = InterMan.ConvertToHtml(db);
         }
@@ -86,7 +86,7 @@ namespace hrm2017.forms.config
             INSERT INTO [dbo].[tbl_kyluat] ([TENKYLUAT])
             VALUES (N'{0}')",txtTenKL.Text);
             DataMan.ExcuteCommand(sql);
-            //lbThongbao.Text = "Thêm thành công";
+            
             Response.Redirect("QuanLyKyLuat.aspx");
 
      

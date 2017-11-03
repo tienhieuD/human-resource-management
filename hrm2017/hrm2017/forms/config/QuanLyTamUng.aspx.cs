@@ -34,6 +34,7 @@ namespace hrm2017.forms.config
                         btn_sua.Visible = false;
                         btn_luu.Visible = true;
                         btn_xoa.Visible = false;
+                        pnTU.Enabled = false;
                         loadChiTiet(matu);
                         break;
                     case "xem":

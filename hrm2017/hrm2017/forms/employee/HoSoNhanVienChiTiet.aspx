@@ -5,7 +5,7 @@
         </style>
     </asp:Content>
     <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-
+  <div class="row">
         <div class="content-box-large">
             <div class="panel-heading">
                 <div class="panel-title">HỒ SƠ NHÂN VIÊN:
@@ -27,67 +27,50 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Mã Nhân viên:</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtManv" runat="server" class="form-control"></asp:TextBox> 
-  
+                        <asp:TextBox ID="txtManv"  runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Họ Tên:</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtHoTen" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="error_hoten" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtHoTen">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtHoTen" runat="server"  required="true" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Giới Tính</label>
                     <div class="col-sm-10">
-                        <asp:RadioButton ID="rb_Nam" GroupName="gt" runat="server" CssClass="form-check-input" /> Nam &nbsp;
+                        <asp:RadioButton ID="rb_Nam" GroupName="gt" runat="server" Checked="true" CssClass="form-check-input" /> Nam &nbsp;
                         <asp:RadioButton ID="rb_Nu" GroupName="gt" runat="server" CssClass="form-check-input" /> Nữ
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Ngày Sinh</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtNgaysinh" runat="server" class="form-control" type="date"></asp:TextBox>
-                        <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="bạn chưa nhập ngày sinh" ControlToValidate="txtNgaysinh" Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
+                        <asp:TextBox ID="txtNgaysinh" required="true" runat="server" class="form-control" type="date"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Nơi Sinh</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtNoiSinh" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="error_noisinh" runat="server" ControlToValidate="txtNoiSinh"  ErrorMessage="Trường này không được để trống">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtNoiSinh" required="true" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Địa Chỉ</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtDiaChi" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="error_diachi" runat="server" ControlToValidate="txtDiaChi"  ErrorMessage="Trường này không được để trống">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtDiaChi" required="true" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Quê Quán</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtQuequan" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="error_quequan" runat="server" ControlToValidate="txtQueQuan"  ErrorMessage="Trường này không được để trống">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtQuequan" required="true" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Số Điện Thoại</label>
+                    <label class="col-sm-2 col-form-label" >Số Điện Thoại</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtSDT" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtSDT"></asp:RequiredFieldValidator><br /><br />
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="sai định dạng số điện thoại" ValidationExpression="^([0-9\(\)\/\+ \-]*)$" ControlToValidate="txtSDT"></asp:RegularExpressionValidator>    
-                       
+                        <asp:TextBox ID="txtSDT" required="true" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -112,7 +95,7 @@
                             <asp:ListItem Value="Gia Lai">Gia Lai</asp:ListItem>
                             <asp:ListItem Value="Giáy">Giáy</asp:ListItem>
                             <asp:ListItem Value="Gié - Triêng">Gié - Triêng</asp:ListItem>
-                            <asp:ListItem Value="H'Mông">H'Mông</asp:ListItem>
+                            <asp:ListItem Value="H Mông">H Mông</asp:ListItem>
                             <asp:ListItem Value="Hà Nhì">Hà Nhì</asp:ListItem>
                             <asp:ListItem Value="Hoa">Hoa</asp:ListItem>
                             <asp:ListItem Value="Hrê">Hrê</asp:ListItem>
@@ -126,7 +109,7 @@
                             <asp:ListItem Value="Lào">Lào</asp:ListItem>
                             <asp:ListItem Value="Lô Lô">Lô Lô</asp:ListItem>
                             <asp:ListItem Value="Lự">Lự</asp:ListItem>
-                            <asp:ListItem Value="M'Nông">M'Nông</asp:ListItem>
+                            <asp:ListItem Value="M Nông">M Nông</asp:ListItem>
                             <asp:ListItem Value="Mạ">Mạ</asp:ListItem>
                             <asp:ListItem Value="Mảng">Mảng</asp:ListItem>
                             <asp:ListItem Value="Mường">Mường</asp:ListItem>
@@ -155,26 +138,19 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Tôn Giáo</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtTonGiao" runat="server" class="form-control"></asp:TextBox><br />
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTonGiao"  ErrorMessage="Trường này không được để trống">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtTonGiao" required="true" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Số CMT</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtSocmt" runat="server" class="form-control"></asp:TextBox><br />
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtSocmt"  ErrorMessage="Trường này không được để trống"></asp:RequiredFieldValidator>
-                         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Sai kiểu dữ liệu" ControlToValidate="txtSocmt" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                        <asp:TextBox ID="txtSocmt" required="true" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtEmail">
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtEmail" required="true" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -192,22 +168,21 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Ghi chú</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtGhiChu" runat="server" class="form-control"></asp:TextBox><br />
-   
+                        <asp:TextBox ID="txtGhiChu" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Trình độ học vấn</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtTdHocVan" runat="server" class="form-control"></asp:TextBox>
+                        <asp:DropDownList ID="lstTDHV" runat="server" CssClass="form-control" ></asp:DropDownList>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Trình độ ngoại ngữ</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtTdNgoaiNgu" runat="server" class="form-control"></asp:TextBox>
+                        <asp:DropDownList ID="lstTDNN" runat="server" CssClass="form-control"></asp:DropDownList>
                     </div>
                 </div>
 
@@ -216,4 +191,5 @@
                     </asp:Panel>
             </div>
         </div>
+</div>
     </asp:Content>

@@ -19,7 +19,8 @@ namespace hrm2017.forms.employee
 
                 LoadListChucVu();
                 LoadListPhongBan();
-
+                LoadListHocVan();
+                LoadListNgoaiNgu();
                 switch (thaoTac)
                 {
                     case "xem":
@@ -79,13 +80,30 @@ namespace hrm2017.forms.employee
             lstChucVu.SelectedValue = dt.Rows[0]["CHUCVU"].ToString();
             lstPhongBan.SelectedValue = dt.Rows[0]["PHONGBAN"].ToString();
             txtGhiChu.Text = dt.Rows[0]["GHICHU"].ToString();
+            lstTDNN.SelectedValue = dt.Rows[0]["TRINHDONN"].ToString();
+            lstTDHV.SelectedValue = dt.Rows[0]["TRINHDOHV"].ToString();
             bool gt = bool.Parse(dt.Rows[0]["GIOITINH"].ToString());
             rb_Nam.Checked = gt;
             rb_Nu.Checked = !gt;
-
-            
         }
-
+        private void LoadListHocVan()
+        {
+            string sql = "SELECT * FROM tbl_trinhdohocvan";
+            DataTable data = DataMan.GetDataTable(sql);
+            lstTDHV.DataSource = data;
+            lstTDHV.DataTextField = "TENTRINHDO";
+            lstTDHV.DataValueField = "MATD";
+            lstTDHV.DataBind();
+        }
+        private void LoadListNgoaiNgu()
+        {
+            string sql = "SELECT * FROM tbl_trinhdongoaingu";
+            DataTable data = DataMan.GetDataTable(sql);
+            lstTDNN.DataSource = data;
+            lstTDNN.DataTextField = "TENTRINHDONN";
+            lstTDNN.DataValueField = "MATRNN";
+            lstTDNN.DataBind();
+        }
         private void LoadListChucVu()
         {
             string sql = "SELECT * FROM tbl_chucvu";
@@ -115,13 +133,13 @@ namespace hrm2017.forms.employee
                 ([HOTEN],[GIOITINH],[NGAYSINH],[NOISINH]
                 ,[DIACHI],[QUEQUAN],[SODIENTHOAI],[DANTOC]
                 ,[TONGIAO],[SOCMT],[EMAIL],[CHUCVU],[PHONGBAN]
-                ,[GHICHU],[ACTIVE])
+                ,[GHICHU],[ACTIVE],[TRINHDOHV],[TRINHDONN])
                 VALUES
                 (N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}',
-                N'{8}',N'{9}',N'{10}',N'{11}',N'{12}',N'{13}',N'True')", txtHoTen.Text, gt, txtNgaysinh.Text,
+                N'{8}',N'{9}',N'{10}',N'{11}',N'{12}',N'{13}',N'True','{14}','{15}')", txtHoTen.Text, gt, txtNgaysinh.Text,
                 txtNoiSinh.Text, txtDiaChi.Text, txtQuequan.Text, txtSDT.Text, lstDanToc.SelectedValue.ToString(),
                 txtTonGiao.Text, txtSocmt.Text, txtEmail.Text, lstChucVu.SelectedValue.ToString(), lstPhongBan.SelectedValue.ToString(),
-                txtGhiChu.Text);
+                txtGhiChu.Text,lstTDHV.SelectedValue.ToString(),lstTDNN.SelectedValue.ToString());
             DataMan.ExcuteCommand(sql);
             Response.Redirect("HoSoNhanVien.aspx");
         }
@@ -140,7 +158,7 @@ namespace hrm2017.forms.employee
                 SET ACTIVE = N'False' WHERE MANV = {0}", manv);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("HoSoNhanVien.aspx");
-            //lbThongbao.Text = "Xóa thành công";
+            
         }
 
         protected void btnSua_Luu_Click(object sender, EventArgs e)
@@ -167,14 +185,14 @@ namespace hrm2017.forms.employee
                     ,[CHUCVU] = N'{12}'
                     ,[PHONGBAN] = N'{13}'
                     ,[GHICHU] = N'{14}'
+                    ,[TRINHDOHV] = '{15}'
+                    ,[TRINHDONN] = '{16}'
                 WHERE MANV = {0}",manv, txtHoTen.Text, gt, txtNgaysinh.Text,
                 txtNoiSinh.Text, txtDiaChi.Text, txtQuequan.Text, txtSDT.Text, lstDanToc.SelectedValue.ToString(),
                 txtTonGiao.Text, txtSocmt.Text, txtEmail.Text, lstChucVu.SelectedValue.ToString(), lstPhongBan.SelectedValue.ToString(),
-                txtGhiChu.Text);
+                txtGhiChu.Text,lstTDHV.SelectedValue.ToString(),lstTDNN.SelectedValue.ToString());
                 DataMan.ExcuteCommand(sql);
-                Response.Redirect(string.Format("HoSoNhanVienChiTiet.aspx?thaotac=xem&manv={0}",manv));
-                lbThongbao.Text = "Sửa thành công";
-                
+                Response.Redirect(string.Format("HoSoNhanVienChiTiet.aspx?thaotac=xem&manv={0}",manv)); 
             }
             catch(Exception ex)
             {
