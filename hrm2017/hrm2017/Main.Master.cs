@@ -15,5 +15,13 @@ namespace hrm2017
             catch { Response.Redirect("/"); }
             lbLogin.Text = Session["login"].ToString();
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
+            Response.Redirect("/");
+        }
     }
 }

@@ -97,12 +97,17 @@
                                     <li><a href="/forms/salary/LapBangLuong.aspx">Lập bảng lương</a>
                                     </li>
                                     <li><a href="
-                                        <% Response.Write(string.Format("/forms/salary/TraLuong.aspx?thang={0}&nam={1}",DateTime.Now.Month-1,DateTime.Now.Year)); %>
+                                        <% Response.Write(
+                                                 string.Format(
+                                                     "/forms/salary/TraLuong.aspx?thang={0}&nam={1}",
+                                                     DateTime.Now.Month - 1, DateTime.Now.Year)); %>
                                         ">Trả lương</a>
                                     </li>
                                     <li><a href="/forms/salary/HopDong.aspx">Quản lý hợp đồng</a>
                                     </li>
-                                    <li><a href="#">Phụ cấp chức vụ</a>
+                                    <li><a href="/forms/config/QuanLyPhuCapChucVu.aspx">Phụ cấp chức vụ</a>
+                                    </li>
+                                    <li><a href="/forms/config/QuanLyTamUng.aspx">Quản lý tạm ứng</a>
                                     </li>
                                 </ul>
                             </li>
@@ -122,9 +127,9 @@
                                     </li>
                                     <li><a href="/forms/config/QuanLyKyLuat.aspx">Hình thức kỷ luật</a>
                                     </li>
-                                    <li><a href="#">Các khoản phụ cấp</a>
+                                    <li><a href="/forms/config/QuanLyPhuCap.aspx">Các khoản phụ cấp</a>
                                     </li>
-                                    <li><a href="#">Các khoản khấu trừ</a>
+                                    <li><a href="/forms/config/QuanLyKhauTru.aspx">Các khoản khấu trừ</a>
                                     </li>
                                 </ul>
                             </li>
@@ -134,7 +139,8 @@
                                     <span class="caret pull-right"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="#">Đăng xuất</a>
+                                    <li>
+                                        <asp:LinkButton ID="LinkButton1" OnClick="LinkButton1_Click" runat="server">Đăng xuất</asp:LinkButton>
                                     </li>
                                     <li><a href="#">Đổi mật khẩu</a>
                                     </li>
