@@ -18,8 +18,6 @@ namespace hrm2017.forms.employee
                 string manv = Request.QueryString["manv"];
                 loadTennv();
                 loadTenkl();
-
-
                 switch (thaotac)
                 {
                     case "them":
@@ -37,8 +35,7 @@ namespace hrm2017.forms.employee
                         loadChiTiet();
                         btn_luu.Visible = true;
                         btn_sua.Visible = false;
-                        lstManhanvien.Enabled = false;
-
+                        pnHTNV.Enabled = false;
                         break;
                     case "xem":
                         pn2.Visible = true;
@@ -70,6 +67,7 @@ namespace hrm2017.forms.employee
 	                END AS 'GHI CHÚ'
                 FROM tbl_kyluatnhanvien INNER JOIN tbl_nhanvien ON tbl_kyluatnhanvien.NHANVIEN = tbl_nhanvien.MANV 
 		        INNER JOIN tbl_kyluat ON tbl_kyluatnhanvien.KYLUATMAKL = tbl_kyluat.MAKYLUAT
+                WHERE tbl_nhanvien.ACTIVE = 'True'
             ";
             DataTable db = DataMan.GetDataTable(sql);
             db.Columns.Add("CHI TIẾT");
@@ -121,7 +119,7 @@ namespace hrm2017.forms.employee
         protected void btn_them_Click(object sender, EventArgs e)
         {
             string sql = string.Format(@"
-                INSERT INTO [hrm].[dbo].[tbl_kyluatnhanvien]
+                INSERT INTO [dbo].[tbl_kyluatnhanvien]
                        ([KYLUATMAKL]
                        ,[NHANVIEN]
                        ,[NGAYKYLUAT]
@@ -145,7 +143,7 @@ namespace hrm2017.forms.employee
         {
             string manv = Request.QueryString["manv"];
             string sql = string.Format(@"
-                DELETE FROM [hrm].[dbo].[tbl_kyluatnhanvien]
+                DELETE FROM [dbo].[tbl_kyluatnhanvien]
                 WHERE NHANVIEN = '{0}'", manv);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("HoSoKyLuat.aspx");
@@ -157,13 +155,10 @@ namespace hrm2017.forms.employee
             {
                 string manv = Request.QueryString["manv"];
                 string sql = string.Format(@"
-                UPDATE [hrm].[dbo].[tbl_kyluatnhanvien]
-                   SET [KYLUATMAKL] = N'{1}',
-                       [NGAYKYLUAT] = N'{2}',
-                       [SOTIEN] = N'{3}',
-                       [DANHAN] = N'{4}'
-                 WHERE NHANVIEN = {0}", manv,
-                     lstTenkl.SelectedValue.ToString(), txtNgaybanhanh.Text, txtSotien.Text, lstDanhan.SelectedValue.ToString());
+                UPDATE [dbo].[tbl_kyluatnhanvien]
+                   SET [SOTIEN] = N'{1}',
+                       [DANHAN] = N'{2}'
+                 WHERE NHANVIEN = {0}", manv,txtSotien.Text, lstDanhan.SelectedValue.ToString());
                 DataMan.ExcuteCommand(sql);
                 Response.Redirect("HoSoKyLuat.aspx");
             }

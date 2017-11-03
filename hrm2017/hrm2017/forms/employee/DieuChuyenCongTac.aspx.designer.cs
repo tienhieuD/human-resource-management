@@ -58,6 +58,15 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.Panel pn2;
         
         /// <summary>
+        /// pnHT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnHT;
+        
+        /// <summary>
         /// lstManhanvien control.
         /// </summary>
         /// <remarks>
@@ -101,15 +110,6 @@ namespace hrm2017.forms.employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLD;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// txtghichu control.

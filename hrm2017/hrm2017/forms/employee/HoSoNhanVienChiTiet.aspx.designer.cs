@@ -94,15 +94,6 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtHoTen;
         
         /// <summary>
-        /// error_hoten control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator error_hoten;
-        
-        /// <summary>
         /// rb_Nam control.
         /// </summary>
         /// <remarks>
@@ -139,15 +130,6 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtNoiSinh;
         
         /// <summary>
-        /// error_noisinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator error_noisinh;
-        
-        /// <summary>
         /// txtDiaChi control.
         /// </summary>
         /// <remarks>
@@ -155,15 +137,6 @@ namespace hrm2017.forms.employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDiaChi;
-        
-        /// <summary>
-        /// error_diachi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator error_diachi;
         
         /// <summary>
         /// txtQuequan control.
@@ -175,15 +148,6 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtQuequan;
         
         /// <summary>
-        /// error_quequan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator error_quequan;
-        
-        /// <summary>
         /// txtSDT control.
         /// </summary>
         /// <remarks>
@@ -191,15 +155,6 @@ namespace hrm2017.forms.employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSDT;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// lstDanToc control.
@@ -220,15 +175,6 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtTonGiao;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
         /// txtSocmt control.
         /// </summary>
         /// <remarks>
@@ -238,15 +184,6 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtSocmt;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
@@ -254,15 +191,6 @@ namespace hrm2017.forms.employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
-        /// <summary>
-        /// RequiredFieldValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
         /// lstChucVu control.
@@ -292,22 +220,22 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtGhiChu;
         
         /// <summary>
-        /// txtTdHocVan control.
+        /// lstTDHV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTdHocVan;
+        protected global::System.Web.UI.WebControls.DropDownList lstTDHV;
         
         /// <summary>
-        /// txtTdNgoaiNgu control.
+        /// lstTDNN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTdNgoaiNgu;
+        protected global::System.Web.UI.WebControls.DropDownList lstTDNN;
         
         /// <summary>
         /// btnThem control.

@@ -23,7 +23,7 @@ namespace hrm2017.forms.config
                     case "them":
                         pn2.Visible = true;
                         pnDSCV.Visible = false;
-                        //txtMaPB.ReadOnly = true;
+                        txtMaCV.ReadOnly = true;
                         btn_them.Visible = true;
 
                         lbTieude.Text = "THÊM CHỨC VỤ";
@@ -70,7 +70,7 @@ namespace hrm2017.forms.config
                 db.Rows[i][n] = string.Format("<a href='QuanLyChucVu.aspx?thaotac=xem&macv={0}'>Chi tiết</a>", macv);
 
             }
-            lbDsPhongBan.Text = InterMan.ConvertToHtml(db);
+            lbDsChucVu.Text = InterMan.ConvertToHtml(db);
         }
         private void loadChucVu()
         {
@@ -93,10 +93,9 @@ namespace hrm2017.forms.config
             else
             {
                 string sql = string.Format(@"
-                INSERT INTO [hrm].[dbo].[tbl_chucvu] ([MACV],[TENCV])
-                VALUES (N'{0}',N'{1}')", txtMaCV.Text, txtTenCV.Text);
+                INSERT INTO [dbo].[tbl_chucvu] ([TENCV])
+                VALUES (N'{0}')",txtTenCV.Text);
                 DataMan.ExcuteCommand(sql);
-                //lbThongbao.Text = "Thêm thành công";
                 Response.Redirect("QuanLyChucVu.aspx");
 
             }
@@ -112,7 +111,7 @@ namespace hrm2017.forms.config
         {
             string macv = Request.QueryString["macv"];
             string sql = string.Format(@"
-                DELETE [hrm].[dbo].[tbl_chucvu]
+                DELETE [dbo].[tbl_chucvu]
                 WHERE MACV= {0}", macv);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("QuanLyChucVu.aspx");
@@ -124,7 +123,7 @@ namespace hrm2017.forms.config
             {
                 string macv = Request.QueryString["macv"];
                 string sql = string.Format(@"
-                UPDATE [hrm].[dbo].[tbl_chucvu]
+                UPDATE [dbo].[tbl_chucvu]
                 SET [TENCV] = N'{1}'
                 WHERE MACV= {0}", macv, txtTenCV.Text);
                 DataMan.ExcuteCommand(sql);

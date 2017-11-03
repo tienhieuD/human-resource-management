@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace hrm2017.forms.employee {
+namespace hrm2017.forms.config {
     
     
-    public partial class HoSoKhenThuong {
+    public partial class QuanLyTamUng {
         
         /// <summary>
         /// lbTieude control.
@@ -31,22 +31,22 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.Label lbThongbao;
         
         /// <summary>
-        /// pnDSKL control.
+        /// pnDSTU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnDSKL;
+        protected global::System.Web.UI.WebControls.Panel pnDSTU;
         
         /// <summary>
-        /// lbHSKT control.
+        /// lbDsTU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbHSKT;
+        protected global::System.Web.UI.WebControls.Label lbDsTU;
         
         /// <summary>
         /// pn2 control.
@@ -58,49 +58,31 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.Panel pn2;
         
         /// <summary>
-        /// pnHT control.
+        /// pnTU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnHT;
+        protected global::System.Web.UI.WebControls.Panel pnTU;
         
         /// <summary>
-        /// lstManhanvien control.
+        /// txtMaTU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstManhanvien;
+        protected global::System.Web.UI.WebControls.TextBox txtMaTU;
         
         /// <summary>
-        /// txtNgaybanhanh control.
+        /// lstHoten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNgaybanhanh;
-        
-        /// <summary>
-        /// pnTKT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnTKT;
-        
-        /// <summary>
-        /// lstTenkhenthuong control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstTenkhenthuong;
+        protected global::System.Web.UI.WebControls.DropDownList lstHoten;
         
         /// <summary>
         /// txtSotien control.
@@ -112,13 +94,13 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtSotien;
         
         /// <summary>
-        /// lstDanhan control.
+        /// txtNgayung control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstDanhan;
+        protected global::System.Web.UI.WebControls.TextBox txtNgayung;
         
         /// <summary>
         /// btn_them control.

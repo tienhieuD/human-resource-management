@@ -19,8 +19,6 @@ namespace hrm2017.forms.employee
                 loadChucVu();
                 loadPhongBan();
                 loadnv();
-
-
                 switch (thaotac)
                 {
                     case "them":
@@ -38,8 +36,7 @@ namespace hrm2017.forms.employee
                         loadDC();
                         btn_luu.Visible = true;
                         btn_sua.Visible = false;
-                        lstManhanvien.Enabled = false;
-
+                        pnHT.Enabled = false;
                         break;
                     case "xem":
                         pn2.Visible = true;
@@ -66,10 +63,11 @@ namespace hrm2017.forms.employee
                   ,tbl_nhanvien.HOTEN AS 'HỌ TÊN',tbl_chucvu.TENCV AS 'TÊN CHỨC VỤ MỚI',tbl_phongban.TENPB AS 'TÊN PHÒNG BAN MỚI'
                   ,CAST([NGAYCHUYEN] AS NVARCHAR) AS 'NGÀY CHUYỂN'
                   ,[LYDO] AS 'LÝ DO'
-                FROM [hrm].[dbo].[tbl_chuyencongtac] 
+                FROM [dbo].[tbl_chuyencongtac] 
                     INNER JOIN tbl_nhanvien ON tbl_chuyencongtac.MANV = tbl_nhanvien.MANV 
                     INNER JOIN tbl_chucvu ON tbl_chuyencongtac.MACVMOI = tbl_chucvu.MACV
-                    INNER JOIN tbl_phongban ON tbl_chuyencongtac.MAPBMOI = tbl_phongban.MAPB";
+                    INNER JOIN tbl_phongban ON tbl_chuyencongtac.MAPBMOI = tbl_phongban.MAPB
+                WHERE tbl_nhanvien.ACTIVE = N'True'";
             DataTable db = DataMan.GetDataTable(sql);
             db.Columns.Add("CHI TIẾT");
             for (int i = 0; i < db.Rows.Count; i++)
@@ -85,7 +83,7 @@ namespace hrm2017.forms.employee
             string madc = Request.QueryString["madc"];
             string sql = @"
                 SELECT MADC,MANV,CAST([NGAYCHUYEN] AS NVARCHAR),LYDO,MAPBMOI,MACVMOI,GHICHU
-                FROM [hrm].[dbo].[tbl_chuyencongtac]
+                FROM [dbo].[tbl_chuyencongtac]
                 WHERE MADC =" + madc;
             DataTable db = DataMan.GetDataTable(sql);
             lstManhanvien.SelectedValue = db.Rows[0]["MANV"].ToString();
@@ -93,8 +91,7 @@ namespace hrm2017.forms.employee
             lstPB.SelectedValue = db.Rows[0]["MAPBMOI"].ToString();
             txtNgaybanhanh.Text = Convert.ToDateTime(db.Rows[0][2].ToString()).ToString("yyyy-MM-dd");
             txtghichu.Text = db.Rows[0]["GHICHU"].ToString();
-            txtLD.Text = db.Rows[0]["LYDO"].ToString();
-                    
+            txtLD.Text = db.Rows[0]["LYDO"].ToString();      
         }
         private void loadnv()
         {
@@ -126,24 +123,20 @@ namespace hrm2017.forms.employee
 
         protected void btn_them_Click(object sender, EventArgs e)
         {
-            string madc = Request.QueryString["madc"];
-            // madc của tôi nó không tự tăng nên tôi làm cái này sau csdl của ông mà để MADC tự tăng thì xóa cái dòng này đi
-            string sql_madc = "SELECT MADC FROM tbl_chuyencongtac ORDER BY MADC DESC";
-            DataTable db = DataMan.GetDataTable(sql_madc);
-            int madc_cuoi = Convert.ToInt16(db.Rows[0][0].ToString())+1;
             string sql = string.Format(@"
-                    INSERT INTO [hrm].[dbo].[tbl_chuyencongtac]
-                               ([MADC],[MANV]
+                    INSERT INTO [dbo].[tbl_chuyencongtac]
+                               ([MANV]
                                ,[NGAYCHUYEN]
                                ,[LYDO]
                                ,[MAPBMOI]
                                ,[MACVMOI]
                                ,[GHICHU])
                          VALUES
-                               (N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}')",madc_cuoi,lstManhanvien.SelectedValue.ToString(),
+                               (N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}')",lstManhanvien.SelectedValue.ToString(),
                                txtNgaybanhanh.Text,txtLD.Text,lstPB.SelectedValue.ToString(),
                                lstChucvu.SelectedValue.ToString(),txtghichu.Text);
             DataMan.ExcuteCommand(sql);
+            UploadThongTinNV(lstManhanvien.SelectedValue.ToString(), lstPB.SelectedValue.ToString(), lstChucvu.SelectedValue.ToString());
             Response.Redirect("DieuChuyenCongTac.aspx");
         }
 
@@ -157,7 +150,7 @@ namespace hrm2017.forms.employee
         {
             string madc = Request.QueryString["madc"];
             string sql = string.Format(@"
-                DELETE FROM [hrm].[dbo].[tbl_chuyencongtac]
+                DELETE FROM [dbo].[tbl_chuyencongtac]
                 WHERE MADC={0}",madc);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("DieuChuyenCongTac.aspx");
@@ -169,7 +162,7 @@ namespace hrm2017.forms.employee
             {
                 string madc = Request.QueryString["madc"];
                 string sql = string.Format(@"
-                    UPDATE [hrm].[dbo].[tbl_chuyencongtac]
+                    UPDATE [dbo].[tbl_chuyencongtac]
                        SET [MANV] = N'{1}'
                           ,[NGAYCHUYEN] = N'{2}'
                           ,[LYDO] = N'{3}'
@@ -179,6 +172,7 @@ namespace hrm2017.forms.employee
                      WHERE MADC = {0}", madc, lstManhanvien.SelectedValue.ToString(), txtNgaybanhanh.Text,
                          txtLD.Text, lstPB.SelectedValue.ToString(), lstChucvu.SelectedValue.ToString(), txtghichu.Text);
                 DataMan.ExcuteCommand(sql);
+                UploadThongTinNV(lstManhanvien.SelectedValue.ToString(), lstPB.SelectedValue.ToString(), lstChucvu.SelectedValue.ToString());
                 Response.Redirect("DieuChuyenCongTac.aspx");
             }
             catch
@@ -186,6 +180,23 @@ namespace hrm2017.forms.employee
                 lbThongbao.Text = "Sửa thất bại!!";
             }
            
+        }
+
+        protected void lstManhanvien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string manv = lstManhanvien.SelectedValue.ToString();
+            string sql = string.Format("SELECT PHONGBAN,CHUCVU from tbl_nhanvien WHERE MANV={0} AND ACTIVE = N'True'", manv);
+            DataTable db = DataMan.GetDataTable(sql);
+            lstChucvu.SelectedValue = db.Rows[0][1].ToString();
+            lstPB.SelectedValue = db.Rows[0][0].ToString();
+        }
+        private void UploadThongTinNV(string manv,string pb,string cv)
+        {
+            string sql = string.Format(@"
+                    UPDATE tbl_nhanvien
+                    SET [PHONGBAN]=N'{1}',[CHUCVU]=N'{2}'
+                    WHERE MANV='{0}'",manv,pb,cv);
+            DataMan.ExcuteCommand(sql);
         }
     }
 }

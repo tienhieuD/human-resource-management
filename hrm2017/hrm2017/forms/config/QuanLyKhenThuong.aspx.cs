@@ -84,8 +84,8 @@ namespace hrm2017.forms.config
         protected void btn_them_Click(object sender, EventArgs e)
         {
             string sql = string.Format(@"
-            INSERT INTO [hrm].[dbo].[tbl_khenthuong] ([MAKHENTHUONG],[TENKHENTHUONG])
-            VALUES ('{0}',N'{1}')",txtMaKT.Text,txtTenKT.Text);
+            INSERT INTO [dbo].[tbl_khenthuong] ([TENKHENTHUONG])
+            VALUES (N'{0}')",txtTenKT.Text);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("QuanLyKhenThuong.aspx");
     
@@ -100,7 +100,7 @@ namespace hrm2017.forms.config
         {
             string makt = Request.QueryString["makt"];
             string sql = string.Format(@"
-                DELETE [hrm].[dbo].[tbl_khenthuong]
+                DELETE [dbo].[tbl_khenthuong]
                 WHERE MAKHENTHUONG = {0}", makt);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("QuanLyKhenThuong.aspx");
@@ -112,7 +112,7 @@ namespace hrm2017.forms.config
             {
                 string makt = Request.QueryString["makt"];
                 string sql = string.Format(@"
-                UPDATE [hrm].[dbo].[tbl_khenthuong]
+                UPDATE [dbo].[tbl_khenthuong]
                 SET [TENKHENTHUONG] = N'{1}'
                 WHERE MAKHENTHUONG= {0}", makt, txtTenKT.Text);
                 DataMan.ExcuteCommand(sql);

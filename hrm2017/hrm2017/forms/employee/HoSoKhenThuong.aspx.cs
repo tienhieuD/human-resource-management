@@ -37,8 +37,9 @@ namespace hrm2017.forms.employee
                         loadChiTiet();
                         btn_luu.Visible = true;
                         btn_sua.Visible = false;
-                        lstManhanvien.Enabled = false;
-                        
+                        pnHT.Enabled = false;
+                        txtNgaybanhanh.ReadOnly = true;
+                        pnTKT.Enabled = false;
                         break;
                     case "xem":
                         pn2.Visible = true;
@@ -70,6 +71,7 @@ namespace hrm2017.forms.employee
 	                END AS 'GHI CHÚ'
                 FROM tbl_khenthuongnhanvien INNER JOIN tbl_nhanvien ON tbl_khenthuongnhanvien.NHANVIENMANV = tbl_nhanvien.MANV 
 		        INNER JOIN tbl_khenthuong ON tbl_khenthuongnhanvien.KHENTHUONGMAKT = tbl_khenthuong.MAKHENTHUONG
+                WHERE tbl_nhanvien.ACTIVE='True'
             ";
             DataTable db = DataMan.GetDataTable(sql);
             db.Columns.Add("CHI TIẾT");
@@ -99,6 +101,7 @@ namespace hrm2017.forms.employee
             lstTenkhenthuong.DataValueField = "MAKHENTHUONG";
             lstTenkhenthuong.DataBind();
         }
+        
         private void loadChiTiet()
         {
             string manv = Request.QueryString["manv"];
@@ -112,15 +115,14 @@ namespace hrm2017.forms.employee
             DataTable db = DataMan.GetDataTable(sql);
             lstManhanvien.SelectedValue = manv;
             lstTenkhenthuong.SelectedValue = db.Rows[0][0].ToString();
-            lstDanhan.SelectedValue =db.Rows[0][3].ToString();
+            lstDanhan.SelectedValue = db.Rows[0][3].ToString();
             txtNgaybanhanh.Text = db.Rows[0][1].ToString();
             txtSotien.Text = db.Rows[0][2].ToString();
-            
         }
         protected void btn_them_Click(object sender, EventArgs e)
         {
             string sql = string.Format(@"
-                INSERT INTO [hrm].[dbo].[tbl_khenthuongnhanvien]
+                INSERT INTO [dbo].[tbl_khenthuongnhanvien]
                        ([KHENTHUONGMAKT]
                        ,[NHANVIENMANV]
                        ,[NGAYKHENTHUONG]
@@ -131,7 +133,7 @@ namespace hrm2017.forms.employee
                        lstTenkhenthuong.SelectedValue.ToString(),lstManhanvien.SelectedValue.ToString(),
                        txtNgaybanhanh.Text,txtSotien.Text,lstDanhan.SelectedValue.ToString());
             DataMan.ExcuteCommand(sql);
-            lbThongbao.Text = "Thêm thành công!!";
+            Response.Redirect("HoSoKhenThuong.aspx");
         }
 
         protected void btn_sua_Click(object sender, EventArgs e)
@@ -144,7 +146,7 @@ namespace hrm2017.forms.employee
         {
             string manv = Request.QueryString["manv"];
             string sql = string.Format(@"
-                DELETE FROM [hrm].[dbo].[tbl_khenthuongnhanvien]
+                DELETE FROM [dbo].[tbl_khenthuongnhanvien]
                 WHERE NHANVIENMANV = '{0}'",manv);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("HoSoKhenThuong.aspx");
@@ -156,13 +158,11 @@ namespace hrm2017.forms.employee
             {
                 string manv = Request.QueryString["manv"];
                 string sql = string.Format(@"
-                UPDATE [hrm].[dbo].[tbl_khenthuongnhanvien]
-                   SET [KHENTHUONGMAKT] = N'{1}',
-                       [NGAYKHENTHUONG] = N'{2}',
-                       [SOTIEN] = N'{3}',
-                       [DANHAN] = N'{4}'
+                UPDATE [dbo].[tbl_khenthuongnhanvien]
+                   SET [SOTIEN] = N'{1}',
+                       [DANHAN] = N'{2}'
                  WHERE NHANVIENMANV = {0}", manv,
-                     lstTenkhenthuong.SelectedValue.ToString(), txtNgaybanhanh.Text, txtSotien.Text, lstDanhan.SelectedValue.ToString());
+                     txtSotien.Text, lstDanhan.SelectedValue.ToString());
                 DataMan.ExcuteCommand(sql);
                 Response.Redirect("HoSoKhenThuong.aspx");
             }

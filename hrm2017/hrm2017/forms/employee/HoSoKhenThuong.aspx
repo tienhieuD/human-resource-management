@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-<div class="container">
+<div class="row">
     <div class="content-box-large">
        
         <div class="panel-heading">
@@ -20,40 +20,40 @@
                 <asp:Label ID="lbHSKT" runat="server" />
             </asp:Panel>
             <asp:Panel ID="pn2" runat="server" Visible="false">
+                <asp:Panel ID="pnHT" runat="server">
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">MÃ NHÂN VIÊN</label>
+                    <label class="col-sm-2 col-form-label">HỌ TÊN NHÂN VIÊN</label>
                     <div class="col-sm-10">
                         <asp:DropDownList ID="lstManhanvien" runat="server" class="form-control"/>
                     </div>
                 </div>
-       
+                </asp:Panel>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">NGÀY BAN HÀNH</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtNgaybanhanh" runat="server" class="form-control" type="date"></asp:TextBox>
+                        <asp:TextBox ID="txtNgaybanhanh" required="true" runat="server" class="form-control" type="date"></asp:TextBox>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">TÊN KHEN THƯỞNG</label>
-                    <div class="col-sm-10">
-                        <asp:DropDownList ID="lstTenkhenthuong" runat="server" class="form-control"/>
+                <asp:Panel ID="pnTKT" runat="server">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">TÊN KHEN THƯỞNG</label>
+                        <div class="col-sm-10">
+                            <asp:DropDownList ID="lstTenkhenthuong" required="true" runat="server" class="form-control"/>
+                        </div>
                     </div>
-                </div>
+                </asp:Panel>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">SỐ TIỀN</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtSotien" runat="server" class="form-control"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Trường này không được để trống" ControlToValidate="txtSotien">
-
-                        </asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtSotien" required="true" pattern="[0-9]{0,}" runat="server" class="form-control"></asp:TextBox>
                     </div>
                 </div>
                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">GHI CHÚ</label>
+                    <label class="col-sm-2 col-form-label">NHẬN THƯỞNG</label>
                     <div class="col-sm-10">
                         <asp:DropDownList ID="lstDanhan" runat="server" class="form-control">
-                            <asp:ListItem Value="1">Đã nhận</asp:ListItem>
-                            <asp:ListItem Value="0">Chưa nhận</asp:ListItem>
+                            <asp:ListItem Value="false">Chưa nhận thưởng</asp:ListItem>
+                            <asp:ListItem Value="true">Đã nhận thưởng</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>

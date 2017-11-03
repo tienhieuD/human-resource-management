@@ -69,9 +69,13 @@
     <Content Include="Default.aspx" />
     <Content Include="forms\attendence\ChamCong.aspx" />
     <Content Include="forms\config\QuanLyChucVu.aspx" />
+    <Content Include="forms\config\QuanLyKhauTru.aspx" />
     <Content Include="forms\config\QuanLyKhenThuong.aspx" />
     <Content Include="forms\config\QuanLyKyLuat.aspx" />
     <Content Include="forms\config\QuanLyPhongBan.aspx" />
+    <Content Include="forms\config\QuanLyPhuCap.aspx" />
+    <Content Include="forms\config\QuanLyPhuCapChucVu.aspx" />
+    <Content Include="forms\config\QuanLyTamUng.aspx" />
     <Content Include="forms\employee\HoSoKhenThuong.aspx" />
     <Content Include="forms\employee\HoSoKyLuat.aspx" />
     <Content Include="forms\employee\HoSoNhanVien.aspx" />
@@ -1168,6 +1172,13 @@
     <Compile Include="forms\config\QuanLyChucVu.aspx.designer.cs">
       <DependentUpon>QuanLyChucVu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="forms\config\QuanLyKhauTru.aspx.cs">
+      <DependentUpon>QuanLyKhauTru.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\config\QuanLyKhauTru.aspx.designer.cs">
+      <DependentUpon>QuanLyKhauTru.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forms\config\QuanLyKhenThuong.aspx.cs">
       <DependentUpon>QuanLyKhenThuong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1189,6 +1200,30 @@
     <Compile Include="forms\config\QuanLyPhongBan.aspx.designer.cs">
       <DependentUpon>QuanLyPhongBan.aspx</DependentUpon>
     </Compile>
+
+    <Compile Include="forms\config\QuanLyPhuCap.aspx.cs">
+      <DependentUpon>QuanLyPhuCap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\config\QuanLyPhuCap.aspx.designer.cs">
+      <DependentUpon>QuanLyPhuCap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\config\QuanLyPhuCapChucVu.aspx.cs">
+      <DependentUpon>QuanLyPhuCapChucVu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\config\QuanLyPhuCapChucVu.aspx.designer.cs">
+      <DependentUpon>QuanLyPhuCapChucVu.aspx</DependentUpon>
+</Compile>
+
+    <Compile Include="forms\config\QuanLyTamUng.aspx.cs">
+      <DependentUpon>QuanLyTamUng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\config\QuanLyTamUng.aspx.designer.cs">
+      <DependentUpon>QuanLyTamUng.aspx</DependentUpon>
+    </Compile>
+
     <Compile Include="forms\employee\HoSoKhenThuong.aspx.cs">
       <DependentUpon>HoSoKhenThuong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

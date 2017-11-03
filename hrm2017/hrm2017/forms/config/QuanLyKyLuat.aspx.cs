@@ -16,17 +16,15 @@ namespace hrm2017.forms.config
             {
                 string thaotac = Request.QueryString["thaotac"];
                 string makl = Request.QueryString["makl"];
-
-
                 switch (thaotac)
                 {
                     case "them":
                         pn2.Visible = true;
                         pnDSKL.Visible = false;
-                       
                         btn_them.Visible = true;
-
+                        Them_maKL();
                         lbTieude.Text = "THÊM KỸ LUẬT";
+                        txtMaKL.ReadOnly = true;
                         break;
                     case "sua":
                         pn2.Visible = true;
@@ -62,13 +60,13 @@ namespace hrm2017.forms.config
         {
             string sql = @"SELECT ROW_NUMBER() over (order by MAKYLUAT) as 'STT', MAKYLUAT as 'MÃ KỸ LUẬT',TENKYLUAT as 'TÊN KỸ LUẬT' FROM tbl_kyluat";
             DataTable db = DataMan.GetDataTable(sql);
+            
             db.Columns.Add("CHI TIẾT");
             for (int i = 0; i < db.Rows.Count; i++)
             {
                 int n = db.Columns.Count - 1;
                 string makl = db.Rows[i][1].ToString();
                 db.Rows[i][n] = string.Format("<a href='QuanLyKyLuat.aspx?thaotac=xem&makl={0}'>Chi tiết</a>", makl);
-
             }
             lbDsKyLuat.Text = InterMan.ConvertToHtml(db);
         }
@@ -83,23 +81,15 @@ namespace hrm2017.forms.config
 
         protected void btn_them_Click(object sender, EventArgs e)
         {
-            string sql_check_ma = string.Format(@"SELECT * FROM tbl_kyluat WHERE MAKYLUAT = '{0}'", txtMaKL.Text);
-            DataTable dt = DataMan.GetDataTable(sql_check_ma);
+     
+            string sql = string.Format(@"
+            INSERT INTO [dbo].[tbl_kyluat] ([TENKYLUAT])
+            VALUES (N'{0}')",txtTenKL.Text);
+            DataMan.ExcuteCommand(sql);
+            
+            Response.Redirect("QuanLyKyLuat.aspx");
 
-            if (dt.Rows.Count > 0)
-            {
-                lbThongbao.Text = "Mã đã tồn tại";
-            }
-            else
-            {
-                string sql = string.Format(@"
-                INSERT INTO [hrm].[dbo].[tbl_kyluat] ([MAKYLUAT],[TENKYLUAT])
-                VALUES (N'{0}',N'{1}')", txtMaKL.Text, txtTenKL.Text);
-                DataMan.ExcuteCommand(sql);
-                lbThongbao.Text = "Thêm thành công";
-                //Response.Redirect("QuanLyKyLuat?thaotac=them");
-
-            }
+     
         }
 
         protected void btn_sua_Click(object sender, EventArgs e)
@@ -112,7 +102,7 @@ namespace hrm2017.forms.config
         {
             string makl = Request.QueryString["makl"];
             string sql = string.Format(@"
-                DELETE [hrm].[dbo].[tbl_kyluat]
+                DELETE [dbo].[tbl_kyluat]
                 WHERE MAKYLUAT= {0}", makl);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("QuanLyKyLuat.aspx");
@@ -124,17 +114,25 @@ namespace hrm2017.forms.config
             {
                 string makl = Request.QueryString["makl"];
                 string sql = string.Format(@"
-                UPDATE [hrm].[dbo].[tbl_kyluat]
+                UPDATE [dbo].[tbl_kyluat]
                 SET [TENKYLUAT] = N'{1}'
                 WHERE MAKYLUAT= {0}", makl, txtTenKL.Text);
                 DataMan.ExcuteCommand(sql);
                 Response.Redirect("QuanLyKyLuat.aspx");
 
             }
-            catch
+            catch(Exception ex)
             {
-                lbThongbao.Text = "Thất bại";
+                lbThongbao.Text = ex.ToString();
             }
+        }
+        void Them_maKL()
+        {
+            string tang_ma = @"select MAKYLUAT from tbl_kyluat order by MAKYLUAT DESC";
+            DataTable db = DataMan.GetDataTable(tang_ma);
+            int ma_cuoi = Convert.ToInt16(db.Rows[0][0].ToString()) + 1;
+            txtMaKL.Text = ma_cuoi.ToString();
+            txtMaKL.ReadOnly = true;
         }
     }
 }

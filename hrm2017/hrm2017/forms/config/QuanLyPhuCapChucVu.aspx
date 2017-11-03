@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="QuanLyKyLuat.aspx.cs" Inherits="hrm2017.forms.config.QuanLyKyLuat" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="QuanLyPhuCapChucVu.aspx.cs" Inherits="hrm2017.forms.config.QuanLyPhuCapChucPhu" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-<div class="container">
+    <div class="container">
     <div class="content-box-large">
+       
         <div class="panel-heading">
             <div class="panel-title">
                 <asp:Label runat="server" ID="lbTieude" ></asp:Label><br />
@@ -13,35 +14,35 @@
         </div>
          
         <div class="panel-body">
-            <asp:Panel ID="pnDSKL" runat="server" >
-                <a href="QuanLyKyLuat.aspx?thaotac=them" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Thêm </a>
+            <asp:Panel ID="pnlDs" runat="server" >
+                <a href="QuanLyPhuCapChucVu.aspx?thaotac=them" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Thêm </a>
                 <br /><br />
-                <asp:Label ID="lbDsKyLuat" runat="server" />
+                <asp:Label ID="lbDsPhuCapChucVu" runat="server" />
             </asp:Panel>
-            <asp:Panel ID="pn2" runat="server" Visible="false">
+            <asp:Panel ID="pnlForm" runat="server" Visible="false">
                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Mã kỷ luật</label>
+                    <label class="col-sm-2 col-form-label">MÃ PHỤ CẤP</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtMaKL" runat="server" class="form-control"></asp:TextBox>
+                        <asp:DropDownList ID="LstPhuCap" runat="server" class="form-control"/>
                     </div>
                 </div>
                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Tên kỷ luật</label>
+                    <label class="col-sm-2 col-form-label">MÃ CHỨC VỤ</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtTenKL" runat="server" class="form-control"></asp:TextBox>
+                        <asp:DropDownList ID="LstChucVu" runat="server" class="form-control"/>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <asp:Button runat="server" ID="btn_them" CssClass="btn btn-info" Text="Thêm" Visible="False" OnClick="btn_them_Click" />
+                
+            </asp:Panel>
+            <div class="form-group row">
+                    <asp:Button runat="server" ID="btnThem" CssClass="btn btn-info" Text="Thêm" Visible="False" OnClick="btn_them_Click" />
                     <asp:Button runat="server" ID="btn_sua" CssClass="btn btn-info" Text="Sửa" Visible="False" OnClick="btn_sua_Click" />
                     <asp:Button runat="server" ID="btn_xoa" CssClass="btn btn-info" Text="Xóa" Visible="False" OnClick="btn_xoa_Click" />
                     <asp:Button runat="server" ID="btn_luu" CssClass="btn btn-info" Text="Lưu" Visible="False" OnClick="btn_luu_Click" />
                 </div>
-            </asp:Panel>
         </div>
-        
-        
-
     </div>
 </div>
+
+
 </asp:Content>
