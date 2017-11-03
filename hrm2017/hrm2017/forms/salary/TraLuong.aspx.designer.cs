@@ -13,6 +13,15 @@ namespace hrm2017.forms.salary {
     public partial class TraLuong {
         
         /// <summary>
+        /// lbTraLuong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbTraLuong;
+        
+        /// <summary>
         /// lbDsLuong control.
         /// </summary>
         /// <remarks>

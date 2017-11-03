@@ -29,6 +29,7 @@ namespace hrm2017.forms.salary
 
             string thang = Request.QueryString["thang"];
             string nam = Request.QueryString["nam"];
+            lbTraLuong.Text = string.Format("TRẢ LƯƠNG CHO NHÂN VIÊN THÁNG {0} NĂM {1}",thang,nam);
 
             #region sql này nó dài
             string sql = string.Format(

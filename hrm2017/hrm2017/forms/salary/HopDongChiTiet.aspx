@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="HopDongChiTiet.aspx.cs" Inherits="hrm2017.forms.salary.HopDongChiTiet" %>
+﻿<%@ Page Title="Chi tiết hợp đồng" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="HopDongChiTiet.aspx.cs" Inherits="hrm2017.forms.salary.HopDongChiTiet" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
@@ -12,11 +12,12 @@
          
     <div class="panel-body">
 
-        <asp:Button ID="btnSuaLuu" runat="server" OnClick="btnSuaLuu_Click" Text="Lưu" Visible="false"/>
-        <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="false"/>
-        <asp:Button ID="btnThemLuu" runat="server" OnClick="btnThemLuu_Click" Text="Lưu" Visible="false"/>
-        <asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="false"/>
-
+        <asp:Button ID="btnSuaLuu" class="btn btn-primary" runat="server" OnClick="btnSuaLuu_Click" Text="Lưu" Visible="false"/>
+        <asp:Button ID="btnSua" class="btn btn-primary" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="false"/>
+        <asp:Button ID="btnThemLuu" class="btn btn-default" runat="server" OnClick="btnThemLuu_Click" Text="Lưu" Visible="false"/>
+        <asp:Button ID="btnXoa" class="btn btn-default" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="false"/>
+        <br />
+        <br />
         <asp:Panel ID="pn2" runat="server" Enabled="false">
             
 

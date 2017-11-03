@@ -18,6 +18,13 @@ namespace hrm2017.forms.attendence
             LoadListThangNam();
             lbThongTin.Text = "Tải dữ liệu để xem bảng công.";
 
+            if (Request.QueryString["thanhcong"] == "1")
+                Response.Write(
+                    @"<script>
+                        alert('Lưu thành công!');
+                        window.location.href = 'ChamCong.aspx';
+                    </script>");
+
             string checked_ck = Request.QueryString["checked_ck"];
             string unchecked_ck = Request.QueryString["unchecked_ck"];
             if (checked_ck != "" && checked_ck != null)
@@ -52,7 +59,7 @@ namespace hrm2017.forms.attendence
             }
             if (unchecked_ck != "" && unchecked_ck != null &&
                 checked_ck != "" && checked_ck != null)
-                Response.Redirect("ChamCong.aspx");
+                Response.Redirect("ChamCong.aspx?thanhcong=1");
             btnTaiDuLieu_Click(sender, e);
         }
 

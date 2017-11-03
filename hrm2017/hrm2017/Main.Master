@@ -8,6 +8,9 @@
     <title></title>
     <link href="styles/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/css/styles.css" rel="stylesheet" />
+    <script src="styles/jquery.js"></script>
+        <script src="styles/bootstrap/js/bootstrap.min.js"></script>
+        <script src="styles/js/custom.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -20,11 +23,11 @@
                     <div class="col-md-5">
                         <!-- Logo -->
                         <div class="logo">
-                            <h1><a href="index.html">HRM</a></h1>
+                            <h1 style="text-transform: uppercase;font-size: 20px;padding: 15px;"><a href="/forms/Home.aspx">Quản lý nhân sự công ty BMS</a></h1>
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <div class="row">
+                        <div class="row" style="display:none;">
                             <div class="col-lg-12">
                                 <div class="input-group form">
                                     <input type="text" class="form-control" placeholder="Search...">
@@ -40,13 +43,9 @@
                             <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                                 <ul class="nav navbar-nav">
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
-                                        <ul class="dropdown-menu animated fadeInUp">
-                                            <li><a href="profile.html">Profile</a>
-                                            </li>
-                                            <li><a href="login.html">Logout</a>
-                                            </li>
-                                        </ul>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <asp:Label ID="lbLogin" runat="server" />
+                                        </a>
                                     </li>
                                 </ul>
                             </nav>
@@ -58,41 +57,93 @@
 
         <div class="page-content">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="sidebar content-box" style="display: block;">
                         <ul class="nav">
                             <!-- Main menu -->
-                            <li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Trang chủ</a>
+                            <li class="current"><a href="/forms/Home.aspx"><i class="glyphicon glyphicon-home"></i> Trang chủ</a>
                             </li>
-                            <li><a href="calendar.html"><i class="glyphicon glyphicon-calendar"></i> Tuyển dụng</a>
+                            <%--<li><a href="calendar.html"><i class="glyphicon glyphicon-calendar"></i> Tuyển dụng</a>
+                            </li>--%>
+                            <li class="submenu open">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-stats"></i> Quản lý nhân viên
+                                </a>
+                                 <ul>
+                                    <li><a href="/forms/employee/HoSoNhanVien.aspx">Hồ sơ nhân viên</a>
+                                    </li>
+                                    <li><a href="/forms/employee/HoSoKhenThuong.aspx">Khen thưởng nhân viên</a>
+                                    </li>
+                                    <li><a href="/forms/employee/HoSoKyLuat.aspx">Kỷ luật nhân viên</a>
+                                    </li>
+                                    <li><a href="/forms/employee/DieuChuyenCongTac.aspx">Điểu chuyển công tác</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li><a href="stats.html"><i class="glyphicon glyphicon-stats"></i> Quản lý hồ sơ</a>
+                            <li  class="submenu open">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-list"></i> Chấm công điểm danh
+                                </a>
+                                <ul>
+                                    <li><a href="/forms/attendence/ChamCong.aspx">Chấm công nhân viên</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i> Chấm công điểm danh</a>
+                            <li class="submenu open">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-record"></i> Quản lý lương
+                                </a>
+                                 <ul>
+                                    <li><a href="/forms/salary/LapBangLuong.aspx">Lập bảng lương</a>
+                                    </li>
+                                    <li><a href="
+                                        <% Response.Write(string.Format("/forms/salary/TraLuong.aspx?thang={0}&nam={1}",DateTime.Now.Month-1,DateTime.Now.Year)); %>
+                                        ">Trả lương</a>
+                                    </li>
+                                    <li><a href="/forms/salary/HopDong.aspx">Quản lý hợp đồng</a>
+                                    </li>
+                                    <li><a href="#">Phụ cấp chức vụ</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li><a href="buttons.html"><i class="glyphicon glyphicon-record"></i> Quản lý lương</a>
+                            <li class="submenu open">
+                                <a href="#"><i class="glyphicon glyphicon-pencil"></i> Báo cáo thống kê
+                                </a>
                             </li>
-                            <li><a href="editors.html"><i class="glyphicon glyphicon-pencil"></i> Báo cáo thống kê</a>
+                            <li class="submenu open">
+                                <a href="#"><i class="glyphicon glyphicon-tasks"></i> Cấu hình hệ thống
+                                </a>
+                                <ul>
+                                    <li><a href="/forms/config/QuanLyChucVu.aspx">Chức vụ</a>
+                                    </li>
+                                    <li><a href="/forms/config/QuanLyPhongBan.aspx">Phòng ban</a>
+                                    </li>
+                                    <li><a href="/forms/config/QuanLyKhenThuong.aspx">Hình thức khen thưởng</a>
+                                    </li>
+                                    <li><a href="/forms/config/QuanLyKyLuat.aspx">Hình thức kỷ luật</a>
+                                    </li>
+                                    <li><a href="#">Các khoản phụ cấp</a>
+                                    </li>
+                                    <li><a href="#">Các khoản khấu trừ</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Cấu hình hệ thống</a>
-                            </li>
-                            <li class="submenu">
+                            <li class="submenu open">
                                 <a href="#">
                                     <i class="glyphicon glyphicon-list"></i> Khác
                                     <span class="caret pull-right"></span>
                                 </a>
-                                <!-- Sub menu -->
                                 <ul>
-                                    <li><a href="login.html">Login</a>
+                                    <li><a href="#">Đăng xuất</a>
                                     </li>
-                                    <li><a href="signup.html">Signup</a>
+                                    <li><a href="#">Đổi mật khẩu</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <asp:ContentPlaceHolder ID="content" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
@@ -108,6 +159,7 @@
 
             </div>
         </footer>
+        <script src="https://code.jquery.com/jquery.js"></script>
         <script src="styles/jquery.js"></script>
         <script src="styles/bootstrap/js/bootstrap.min.js"></script>
         <script src="styles/js/custom.js"></script>

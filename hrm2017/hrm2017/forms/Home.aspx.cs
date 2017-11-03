@@ -12,9 +12,10 @@ namespace hrm2017.forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string sql = "Select * from tbl_nhanvien";
-            DataTable dataTable = DataMan.GetDataTable(sql);
-            lbDsNhanVien.Text = InterMan.ConvertToHtml(dataTable);
+            //string sql = "Select * from tbl_nhanvien";
+            //DataTable dataTable = DataMan.GetDataTable(sql);
+            //lbDsNhanVien.Text = InterMan.ConvertToHtml(dataTable);
+            //lbDsNhanVien.Text = Session["login"].ToString();
         }
     }
 }

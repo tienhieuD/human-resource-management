@@ -4,5 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <a href="HopDongChiTiet.aspx?thaotac=them" class="btn btn-primary">
         <i class="glyphicon glyphicon-plus"></i> Thêm </a>
+    <br />
+    <br />
     <asp:Label ID="lbDsHopDong" runat ="server" />
 </asp:Content>

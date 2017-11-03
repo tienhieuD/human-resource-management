@@ -171,7 +171,9 @@
     <Content Include="styles\bootstrap\css\bootstrap.min.css" />
     <Content Include="styles\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="styles\bootstrap\js\bootstrap.js" />
-    <Content Include="styles\bootstrap\js\bootstrap.min.js" />
+    <Content Include="styles\bootstrap\js\bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="styles\buttons.html" />
     <Content Include="styles\calendar.html" />
     <Content Include="styles\css\buttons.css" />

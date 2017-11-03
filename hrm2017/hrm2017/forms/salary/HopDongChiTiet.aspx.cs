@@ -30,7 +30,7 @@ namespace hrm2017.forms.salary
                 case "sua":
                     pn2.Enabled = true;
                     btnSuaLuu.Visible = true;
-                    txtMaHD.Enabled = false;
+                    txtMaHD.ReadOnly = true;
                     LoadHopDong(mahd);
                     break;
                 case "them":

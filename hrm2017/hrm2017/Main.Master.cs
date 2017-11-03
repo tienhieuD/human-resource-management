@@ -11,7 +11,9 @@ namespace hrm2017
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try { Session["login"].ToString().Trim(); }
+            catch { Response.Redirect("/"); }
+            lbLogin.Text = Session["login"].ToString();
         }
     }
 }

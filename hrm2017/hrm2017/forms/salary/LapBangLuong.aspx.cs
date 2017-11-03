@@ -59,7 +59,7 @@ namespace hrm2017.forms.salary
 	                ,TENCV
 	                ,(SELECT COUNT(tbl_chamcongngay.MANV) from tbl_chamcongngay where tbl_chamcongngay.MANV =tbl_nhanvien.MANV and  month(tbl_chamcongngay.NGAY) = '{0}' and  year(tbl_chamcongngay.NGAY) = '{1}') 'socong'
 	                ,(SELECT case  when SUM(tbl_hopdong.LUONGCOBAN)  is NULL then 0 else SUM(tbl_hopdong.LUONGCOBAN) end from tbl_hopdong where tbl_hopdong.MAUNGVIEN=tbl_nhanvien.MANV) 'luongcb'
-	                ,(Select case  when sum(tbl_tamung.SOTIEN) is NULL then 0 else sum(tbl_tamung.SOTIEN) end from tbl_tamung where MANV = tbl_nhanvien.MANV) 'tamung'
+	                ,(Select case  when sum(tbl_tamung.SOTIEN) is NULL then 0 else sum(tbl_tamung.SOTIEN) end from tbl_tamung where MANV = tbl_nhanvien.MANV and month(tbl_tamung.NGAYTU)= '{0}' and YEAR(tbl_tamung.NGAYTU) = '{1}') 'tamung'
 	                ,(SELECT case  when sum(tbl_phucap.SOTIEN) is NULL then 0 else sum(tbl_phucap.SOTIEN) end from tbl_phucapchucvu inner join tbl_phucap on tbl_phucap.MAPC = tbl_phucapchucvu.PHUCAPMAPC where CHUCVUMACV=tbl_nhanvien.CHUCVU) 'phucap'
 					,(select case  when sum(tbl_khautru.KHAUTRU) is NULL then 0 else sum(tbl_khautru.KHAUTRU) end from tbl_khautru) 'khautru'
 	                ,(SELECt case  when sum(tbl_khenthuongnhanvien.SOTIEN)is NULL then 0 else sum(tbl_khenthuongnhanvien.SOTIEN) end from tbl_khenthuongnhanvien where tbl_khenthuongnhanvien.NHANVIENMANV=tbl_nhanvien.MANV and month(tbl_khenthuongnhanvien.NGAYKHENTHUONG) = '{0}' and  year(tbl_khenthuongnhanvien.NGAYKHENTHUONG) = '{1}' and DANHAN = 0)'khenthuong'

@@ -13,15 +13,6 @@ namespace hrm2017.forms.salary {
     public partial class LapBangLuong {
         
         /// <summary>
-        /// lstNam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstNam;
-        
-        /// <summary>
         /// lstThang control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace hrm2017.forms.salary {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstThang;
+        
+        /// <summary>
+        /// lstNam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lstNam;
         
         /// <summary>
         /// btnLapBangLuongThang control.
@@ -47,6 +47,15 @@ namespace hrm2017.forms.salary {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLuuBangLuong;
+        
+        /// <summary>
+        /// lbThongTin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbThongTin;
         
         /// <summary>
         /// lbBangLuong control.
