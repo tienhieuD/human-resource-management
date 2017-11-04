@@ -85,6 +85,24 @@ namespace hrm2017.forms.employee {
         protected global::System.Web.UI.WebControls.TextBox txtManv;
         
         /// <summary>
+        /// anh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image anh;
+        
+        /// <summary>
+        /// UploadFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload UploadFile;
+        
+        /// <summary>
         /// txtHoTen control.
         /// </summary>
         /// <remarks>

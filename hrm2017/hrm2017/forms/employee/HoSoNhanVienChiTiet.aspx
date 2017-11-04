@@ -31,6 +31,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                     <label class="col-sm-2 col-form-label">Ảnh Nhân viên:</label>
+                    <div class="col-sm-10">
+                        <asp:Image ID="anh" runat="server" ImageUrl="~/image/7.jpg" style="height:200px;" /><br /><br>
+                        <asp:FileUpload ID="UploadFile" runat="server"  Enabled="False" />
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Họ Tên:</label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtHoTen" runat="server"  required="true" class="form-control"></asp:TextBox>

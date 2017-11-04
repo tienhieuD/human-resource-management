@@ -86,6 +86,8 @@
     <Content Include="forms\salary\HopDongChiTiet.aspx" />
     <Content Include="forms\salary\LapBangLuong.aspx" />
     <Content Include="forms\salary\TraLuong.aspx" />
+    <Content Include="image\7.jpg" />
+    <Content Include="image\1007.jpg" />
     <Content Include="Main.Master" />
     <None Include="packages.config" />
     <Content Include="styles\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -1200,7 +1202,6 @@
     <Compile Include="forms\config\QuanLyPhongBan.aspx.designer.cs">
       <DependentUpon>QuanLyPhongBan.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="forms\config\QuanLyPhuCap.aspx.cs">
       <DependentUpon>QuanLyPhuCap.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1214,8 +1215,7 @@
     </Compile>
     <Compile Include="forms\config\QuanLyPhuCapChucVu.aspx.designer.cs">
       <DependentUpon>QuanLyPhuCapChucVu.aspx</DependentUpon>
-</Compile>
-
+    </Compile>
     <Compile Include="forms\config\QuanLyTamUng.aspx.cs">
       <DependentUpon>QuanLyTamUng.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1223,7 +1223,6 @@
     <Compile Include="forms\config\QuanLyTamUng.aspx.designer.cs">
       <DependentUpon>QuanLyTamUng.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="forms\employee\HoSoKhenThuong.aspx.cs">
       <DependentUpon>HoSoKhenThuong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

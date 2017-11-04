@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -27,6 +28,7 @@ namespace hrm2017.forms.employee
                         btnSua.Visible = true;
                         btnXoa.Visible = true;
                         btnHopDong.Visible = true;
+                        
                         LoadThongTinNhanVien(manv);
                         break;
 
@@ -34,7 +36,9 @@ namespace hrm2017.forms.employee
                         pnlMain.Enabled = true;
                         btnThem.Visible = true;
                         txtManv.ReadOnly = true;
+                        anh.ImageUrl = "";
                         txtHoTen.Focus();
+                        UploadFile.Enabled = true;
                         break;
 
                     case "sua":
@@ -43,6 +47,7 @@ namespace hrm2017.forms.employee
                         txtManv.ReadOnly = true;
                         txtHoTen.Focus();
                         LoadThongTinNhanVien(manv);
+                        UploadFile.Enabled = true;
                         break;
 
                     case "xoa":
@@ -85,6 +90,7 @@ namespace hrm2017.forms.employee
             bool gt = bool.Parse(dt.Rows[0]["GIOITINH"].ToString());
             rb_Nam.Checked = gt;
             rb_Nu.Checked = !gt;
+            anh.ImageUrl = "~/image/" + txtManv.Text.Trim() + ".jpg";
         }
         private void LoadListHocVan()
         {
@@ -123,10 +129,15 @@ namespace hrm2017.forms.employee
             lstPhongBan.DataValueField = "MAPB";
             lstPhongBan.DataBind();
         }
+        private string getMaNvCuoi()
+        {
+            string sql = "SELECT MANV FROM tbl_nhanvien ORDER BY MANV DESC";
+            DataTable db = DataMan.GetDataTable(sql);
+            return db.Rows[0][0].ToString();
+        }
 
         protected void btnThem_Click(object sender, EventArgs e)
         {
-           
             int gt = rb_Nam.Checked ? 1 : 0;
             string sql = string.Format(
                 @"INSERT INTO [dbo].[tbl_nhanvien]
@@ -141,7 +152,19 @@ namespace hrm2017.forms.employee
                 txtTonGiao.Text, txtSocmt.Text, txtEmail.Text, lstChucVu.SelectedValue.ToString(), lstPhongBan.SelectedValue.ToString(),
                 txtGhiChu.Text,lstTDHV.SelectedValue.ToString(),lstTDNN.SelectedValue.ToString());
             DataMan.ExcuteCommand(sql);
+            ThemAnh(getMaNvCuoi());
             Response.Redirect("HoSoNhanVien.aspx");
+        }
+
+        void ThemAnh(string manvCuoi)
+        {
+            if (Page.IsValid && UploadFile.HasFile && checkTypeFile(UploadFile.FileName))
+            {
+                string fileName = "~/image/" + manvCuoi + ".jpg";
+                string filePath = MapPath(fileName);
+                UploadFile.SaveAs(filePath);
+                //anh.ImageUrl = fileName;
+            }
         }
 
         protected void btnSua_Click(object sender, EventArgs e)
@@ -192,9 +215,22 @@ namespace hrm2017.forms.employee
                 txtTonGiao.Text, txtSocmt.Text, txtEmail.Text, lstChucVu.SelectedValue.ToString(), lstPhongBan.SelectedValue.ToString(),
                 txtGhiChu.Text,lstTDHV.SelectedValue.ToString(),lstTDNN.SelectedValue.ToString());
                 DataMan.ExcuteCommand(sql);
-                Response.Redirect(string.Format("HoSoNhanVienChiTiet.aspx?thaotac=xem&manv={0}",manv)); 
+                //if (Page.IsValid && UploadFile.HasFile && checkTypeFile(UploadFile.FileName))
+                //{
+                //    string fileName = "~/image/" + txtManv.Text.Trim()+ Path.GetExtension(UploadFile.FileName);
+                //    string fileCu = txtManv.Text.Trim() + Path.GetExtension(UploadFile.FileName);
+                //    System.IO.File.Delete(@"C:\Users\Nam Tran\Documents\GitHub\repos\hrm2017\hrm2017\image\" + fileCu);
+                //    string filePath = MapPath(fileName);
+                //    UploadFile.SaveAs(filePath);
+                //    anh.ImageUrl = "~/image/" + txtManv.Text.Trim();
+                //    Response.Redirect(string.Format("HoSoNhanVienChiTiet.aspx?thaotac=xem&manv={0}", manv));
+                //}
+                ThemAnh(txtManv.Text);
+                anh.ImageUrl = "~/image/" + txtManv.Text + ".jpg";
+                Response.Redirect(
+                    string.Format("HoSoNhanVienChiTiet.aspx?thaotac=xem&manv={0}", manv));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lbThongbao.Text = ex.ToString();
             }
@@ -205,5 +241,11 @@ namespace hrm2017.forms.employee
             string manv = Request.QueryString["manv"];
             Response.Redirect(string.Format("/forms/salary/HopDong.aspx?manv={0}", manv));
         }
+        private bool checkTypeFile(string fileName)
+        {
+            string duoi = Path.GetExtension(fileName);
+            return duoi == ".jpg";
+        }
+       
     }
 }
