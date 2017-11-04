@@ -83,7 +83,7 @@ namespace hrm2017.forms.config
         {
             string sql = string.Format("SELECT * FROM tbl_tamung WHERE MATU={0}",matu);
             DataTable db = DataMan.GetDataTable(sql);
-            txtMaTU.Text = db.Rows[0][0].ToString();
+            txtMaTU.Text = db.Rows[0]["MATU"].ToString();
             lstHoten.SelectedValue = db.Rows[0][1].ToString();
             txtNgayung.Text = Convert.ToDateTime(db.Rows[0][3].ToString()).ToString("yyyy-MM-dd");
             txtSotien.Text = db.Rows[0][2].ToString();
@@ -121,6 +121,7 @@ namespace hrm2017.forms.config
             {
                 string matu = Request.QueryString["matu"];
                 DataMan.ExcuteCommand(string.Format(@"DELETE tbl_tamung WHERE MATU={0}", matu));
+                Response.Redirect("QuanLyTamUng.aspx");
             }
             catch(Exception ex)
             {
