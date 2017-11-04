@@ -101,7 +101,7 @@ doPlot("right");
 });
 
 // Morris Bar Chart
-Morris.Bar({
+/*Morris.Bar({
     element: 'hero-bar',
     data: [
         {device: '1', sells: 136},
@@ -119,6 +119,8 @@ Morris.Bar({
     hideHover: 'auto',
     barColors: ["#3d88ba"]
 });
+
+*/
 
 
 // Morris Donut Chart
@@ -139,7 +141,7 @@ Morris.Donut({
     element: 'hero-donut2',
     data: [
         {label: 'Google', value: 25 },
-        {label: 'Yahoo', value: 40 },
+        {label: 'Yahoo', value: 4 },
         {label: 'Bing', value: 25 },
         {label: 'Yandex', value: 10 }
     ],
