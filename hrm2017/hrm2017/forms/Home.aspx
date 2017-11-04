@@ -117,12 +117,26 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">
-                    <div id="NhanVienDiemDanh" style="height: 230px;"></div>
+                    <div id="NhanVienDiemDanh" style="height: 260px;"></div>
                 </div>
             </div>
         </div>
 
-
+        <!-- NHÂN VIÊN KIẾM LƯƠNG CAO NHẤT THÁNG TRƯỚC -->
+        <div class="panel-heading">
+            <div class="panel-title"> NHÂN VIÊN KIẾM LƯƠNG CAO NHẤT THÁNG TRƯỚC </div>
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="NhanVienLuong" style="height: 230px;"></div>
+                </div>
+            </div>
+        </div>
 
     </div>
     
@@ -254,6 +268,30 @@
             ],
             colors: ["#4caf50", "#aed581"],
             formatter: function (y) { return y + "%" }
+        });
+
+        Morris.Bar({
+            element: 'NhanVienLuong',
+            data: [
+                <% 
+                    string sql_lg = string.Format(
+                                    @"SELECT top 10 HOTEN, SUM(THUCLINH) 'TL'
+                                    from tbl_nhanvien
+                                    join tbl_bangluong on tbl_nhanvien.MANV = tbl_bangluong.NV
+                                    where THANG = {0}
+                                    and NAM = {1}
+                                    group by HOTEN
+                                    order by TL desc", DateTime.Now.Month-1, DateTime.Now.Year);
+                    Response.Write(GetStatsData(sql_lg)); 
+                %>
+            ],
+            xkey: 'device',
+            ykeys: ['sells'],
+            labels: ['VNĐ'],
+            barRatio: 0.4,
+            xLabelMargin: 10,
+            hideHover: 'auto',
+            barColors: ["#64b5f6"]
         });
 	</script>
 </asp:Content>
