@@ -90,7 +90,13 @@ namespace hrm2017.forms.employee
             bool gt = bool.Parse(dt.Rows[0]["GIOITINH"].ToString());
             rb_Nam.Checked = gt;
             rb_Nu.Checked = !gt;
-            anh.ImageUrl = "~/image/" + txtManv.Text.Trim() + ".jpg";
+
+            //anh.ImageUrl = "~/image/" + txtManv.Text.Trim() + ".jpg";
+            Guid g = Guid.NewGuid();
+            string GuidString = Convert.ToBase64String(g.ToByteArray());
+            GuidString = GuidString.Replace("=", "");
+            GuidString = GuidString.Replace("+", "");
+            anh.ImageUrl = "~/image/" + txtManv.Text.Trim() + ".jpg" + "?r=" + GuidString;
         }
         private void LoadListHocVan()
         {
