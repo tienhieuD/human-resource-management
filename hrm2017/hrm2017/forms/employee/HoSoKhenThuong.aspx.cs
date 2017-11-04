@@ -147,7 +147,12 @@ namespace hrm2017.forms.employee
             string manv = Request.QueryString["manv"];
             string sql = string.Format(@"
                 DELETE FROM [dbo].[tbl_khenthuongnhanvien]
-                WHERE NHANVIENMANV = '{0}'",manv);
+                      WHERE KHENTHUONGMAKT = '{0}'
+	                  AND NHANVIENMANV = '{1}'
+	                  AND NGAYKHENTHUONG = '{2}'" ,
+                      lstTenkhenthuong.SelectedValue,
+                      lstManhanvien.SelectedValue,
+                      txtNgaybanhanh.Text);
             DataMan.ExcuteCommand(sql);
             Response.Redirect("HoSoKhenThuong.aspx");
         }
